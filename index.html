@@ -1,5 +1,5 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>安全法令ナビ v8</title>
+<title>安全法令ナビ v10</title>
 <style>
 :root{--navy:#0c304e;--blue:#125b78;--cyan:#26829e;--bg:#f2f6f9;--text:#182530;--muted:#6d7c88;--line:#dde6ec;--green:#2f7c55;--amber:#9c6b1b;--red:#a84444}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic",Meiryo,sans-serif}
@@ -42,6 +42,102 @@ main{max-width:1240px;margin:-28px auto 55px;padding:0 13px}.searchbox{backgroun
 .articlehead{background:#f3f7f9;padding:10px 12px;font-size:13px;font-weight:900;color:#264d62}
 .articlebody{padding:11px 12px;font-size:12px;line-height:1.75;color:#526573}
 @media(max-width:650px){.pointgrid,.metricgrid{grid-template-columns:1fr}}
+
+.metricgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.metriccard{border:1px solid #bcd5df;background:linear-gradient(135deg,#f7fbfc,#eaf4f7);border-radius:13px;padding:14px}
+.metricvalue{font-size:18px;font-weight:950;color:#0b5673;line-height:1.45}
+.metricmeaning{font-size:12px;color:#526a79;line-height:1.65;margin-top:7px}
+.articlecard{border:1px solid #dbe5ea;border-radius:12px;overflow:hidden;margin-bottom:10px}
+.articlehead{background:#f1f6f8;padding:10px 12px;font-size:13px;font-weight:900;color:#244d63}
+.articlebody{padding:11px 12px;font-size:12px;line-height:1.78;color:#526572}
+.articlelink{display:inline-block;margin:0 12px 12px;color:#126181;font-size:12px;font-weight:800;text-decoration:none}
+.articlelink:hover{text-decoration:underline}
+.original{background:#fbfcfd;border:1px solid #dce5ea;border-radius:12px;padding:13px;margin-bottom:10px}
+.originalname{font-size:13px;font-weight:900;color:#2b4d61;margin-bottom:7px}
+.originaltext{font-size:12px;line-height:1.85;color:#4f6370}
+.kwbtn{border:1px solid #d8e6ec;background:#eef5f8;color:#2c5669;border-radius:999px;padding:6px 9px;font-size:12px}
+.kwbtn:hover{background:#dceef3}
+@media(max-width:650px){.metricgrid{grid-template-columns:1fr}}
+
+/* ===== v10 mobile layout ===== */
+@media(max-width:700px){
+  body{font-size:14px}
+  header{padding:18px 12px 34px}
+  .wrap{width:100%}
+  .head{display:block}
+  h1{font-size:24px;line-height:1.2}
+  .sub{font-size:12px;line-height:1.55;margin-top:7px}
+  .actions{display:none}
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:6px;
+    margin-top:12px
+  }
+  .stat{
+    padding:6px 8px;
+    font-size:10px;
+    text-align:center;
+    white-space:normal;
+    line-height:1.35
+  }
+  main{margin:-18px auto 35px;padding:0 8px}
+  .searchbox{border-radius:14px;padding:12px}
+  .label{font-size:12px;line-height:1.45}
+  .row{display:grid;grid-template-columns:1fr auto;gap:6px}
+  input{min-width:0;width:100%;padding:13px 12px;font-size:16px;border-radius:10px}
+  .primary{padding:0 15px;min-width:68px;border-radius:10px}
+  .quick,.tabs,.kw,.cloud,.side{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none
+  }
+  .quick::-webkit-scrollbar,.tabs::-webkit-scrollbar,.kw::-webkit-scrollbar,.cloud::-webkit-scrollbar,.side::-webkit-scrollbar{display:none}
+  .quick{flex-wrap:nowrap;padding-bottom:3px}
+  .chip{flex:0 0 auto;padding:7px 10px}
+  .tip{font-size:10px;line-height:1.5}
+  .tabs{display:flex;gap:6px;padding-bottom:3px}
+  .tab{flex:0 0 auto;padding:7px 9px;font-size:11px}
+  .layout{display:block;margin-top:12px}
+  .side{position:static;display:flex;gap:6px;padding:8px;margin-bottom:10px;border-radius:12px}
+  .sidetitle{display:none}
+  .sidebtn{flex:0 0 auto;width:auto;min-width:max-content;gap:8px;padding:7px 9px;border:1px solid #e0e8ed;background:#fbfcfd}
+  .sidebtn.active{background:#edf5f8}
+  .toolbar{align-items:flex-start;gap:8px;margin:0 2px 8px}
+  .titleh{font-size:17px}
+  .cnt{font-size:11px}
+  select{max-width:48vw;min-width:0;padding:7px 8px;font-size:11px}
+  .grid{gap:9px}
+  .card{border-radius:13px;padding:13px}
+  .topic{font-size:16px}
+  .law{font-size:10px}
+  .desc{font-size:12px;line-height:1.65}
+  .facts{flex-direction:column;gap:6px}
+  .fact{width:100%;font-size:11px;line-height:1.5}
+  .kw{flex-wrap:nowrap;padding-bottom:3px}
+  .k{flex:0 0 auto}
+  .bottom{flex-direction:column;align-items:stretch;gap:8px}
+  .articlemini{font-size:10px;line-height:1.5}
+  .more{width:100%;padding:10px 12px}
+  .drawer{width:100vw;right:-100vw}
+  .drawer.open{right:0}
+  .dhead{padding:12px 13px}
+  .dtitle{font-size:18px}
+  .dbody{padding:13px}
+  .section{margin:18px 0}
+  .section h3{font-size:12px}
+  .purpose{font-size:13px;line-height:1.8;padding:12px}
+  .pointgrid,.metricgrid{grid-template-columns:1fr}
+  .pointcard,.metriccard{padding:11px}
+  .metricvalue{font-size:17px}
+  .articlehead{font-size:12px;line-height:1.5}
+  .articlebody,.originaltext{font-size:12px;line-height:1.75}
+  .cloud{flex-wrap:nowrap;padding-bottom:4px}
+  .kwbtn{flex:0 0 auto}
+  .warn{font-size:11px}
+  .footer{font-size:10px;padding:0 8px}
+}
+
 </style></head><body>
 <header><div class="wrap"><div class="head"><div><h1>安全法令ナビ</h1><div class="sub">現場で使える。現場ワードから法令・数値・資格・届出・物質・現場ルールへ逆引き。</div></div><div class="actions"><button class="ghost" onclick="showAll()">全件表示</button><button class="ghost" onclick="window.print()">印刷</button></div></div><div class="stats"><span class="stat" id="topicStat"></span><span class="stat" id="lawStat"></span><span class="stat" id="kwStat"></span><span class="stat">公式一次資料リンク付き</span></div></div></header>
 <main><section class="searchbox"><div class="label">現場で見たもの・作業・設備・物質・資格・届出名を入力</div><div class="row"><input id="q" placeholder="例：足場、塗料、玉掛け、タンク、LOTO、石綿、熱中症"><button class="primary" id="go">検索</button></div><div class="quick" id="quick"></div><div class="tip">検索入口は現場語。具体的な高さ・幅・荷重・濃度・期限は結果側に表示します。</div><div class="tabs"><button class="tab active" data-mode="all">すべて</button><button class="tab" data-mode="official">公式確認済み中心</button><button class="tab" data-mode="numbers">数値・期限あり</button><button class="tab" data-mode="beginner">新人向け解説あり</button></div></section>
@@ -49,6 +145,9 @@ main{max-width:1240px;margin:-28px auto 55px;padding:0 13px}.searchbox{backgroun
 <div class="drawerbg" id="bg"></div><aside class="drawer" id="drawer"><div class="dhead"><div class="dtitle" id="dt"></div><button class="close" id="close">×</button></div><div class="dbody" id="db"></div></aside>
 <script>
 
+const ORIGINAL_TEXT={"酸素欠乏・閉所": [{"n": "酸素欠乏症等防止規則 第5条（換気）", "t": "事業者は、酸素欠乏危険作業に労働者を従事させる場合は、当該作業を行う場所の空気中の酸素の濃度を十八パーセント以上（第二種酸素欠乏危険作業に係る場所にあっては、空気中の酸素の濃度を十八パーセント以上、かつ、硫化水素の濃度を百万分の十以下。）に保つように換気しなければならない。"}, {"n": "酸素欠乏症等防止規則 第11条（作業主任者）", "t": "酸素欠乏危険作業については、法令で定める技能講習を修了した者のうちから作業主任者を選任し、作業方法の決定、作業指揮、濃度測定、測定器具・換気装置・空気呼吸器等の点検、使用状況の監視等を行わせる。"}, {"n": "酸素欠乏症等防止規則 第13条（監視）", "t": "酸素欠乏危険作業に労働者を従事させる場合は、常時作業の状況を監視し、異常があったときに直ちに関係者に通報できる措置を講じる。"}], "玉掛け・吊具": [{"n": "クレーン等安全規則 第220条（作業開始前の点検）", "t": "事業者は、クレーン、移動式クレーン又はデリックの玉掛用具であるワイヤロープ、つりチェーン、繊維ロープ、繊維ベルト又はフック、シャックル、リング等の金具を用いて玉掛けの作業を行うときは、その日の作業を開始する前に当該ワイヤロープ等の異常の有無について点検を行わなければならない。"}, {"n": "クレーン等安全規則 第221条（就業制限）", "t": "事業者は、法令で定める玉掛けの業務については、玉掛け技能講習を修了した者その他法令で定める者でなければ、当該業務に就かせてはならない。"}, {"n": "クレーン等安全規則 第222条（特別の教育）", "t": "事業者は、つり上げ荷重が一トン未満のクレーン、移動式クレーン又はデリックの玉掛けの業務に労働者をつかせるときは、当該労働者に対し、当該業務に関する安全のための特別の教育を行わなければならない。"}], "クレーン・移動式クレーン": [{"n": "クレーン等安全規則 第67条（特別の教育）", "t": "事業者は、つり上げ荷重が一トン未満の移動式クレーンの運転の業務に労働者を就かせるときは、当該労働者に対し、当該業務に関する安全のための特別の教育を行わなければならない。"}, {"n": "クレーン等安全規則 第68条（就業制限）", "t": "移動式クレーンの運転業務については免許等の資格が必要であり、つり上げ荷重一トン以上五トン未満の小型移動式クレーンについては、小型移動式クレーン運転技能講習修了者が運転できる。"}], "足場・作業床": [{"n": "労働安全衛生規則 第563条（作業床）", "t": "足場（一側足場を除く。）における高さ二メートル以上の作業場所には作業床を設ける。つり足場の場合を除き、幅は四十センチメートル以上、床材間の隙間は三センチメートル以下、床材と建地との隙間は十二センチメートル未満とする。"}], "墜落・高所作業": [{"n": "労働安全衛生規則 第518条", "t": "高さが二メートル以上の箇所で作業を行う場合において、墜落により労働者に危険を及ぼすおそれのあるときは、足場を組み立てる等の方法により作業床を設けなければならない。"}]};
+const EXACT_METRICS={"酸素欠乏・閉所": [{"v": "酸素の濃度を十八パーセント以上", "m": "酸素欠乏危険作業における換気の基準（酸欠則第5条）"}, {"v": "硫化水素の濃度を百万分の十以下", "m": "第二種酸素欠乏危険作業における換気の基準（酸欠則第5条）"}], "玉掛け・吊具": [{"v": "つり上げ荷重が一トン未満", "m": "玉掛け業務に特別教育が必要となる区分（クレーン則第222条）"}, {"v": "つり上げ荷重一トン以上", "m": "玉掛け技能講習等の就業制限区分（クレーン則第221条・安衛令第20条）"}], "クレーン・移動式クレーン": [{"v": "つり上げ荷重が一トン未満", "m": "移動式クレーン運転の特別教育区分（クレーン則第67条）"}, {"v": "つり上げ荷重一トン以上五トン未満", "m": "小型移動式クレーン運転技能講習の区分（クレーン則第68条）"}], "足場・作業床": [{"v": "高さ二メートル以上", "m": "足場に作業床を設ける作業場所の条件（安衛則第563条）"}, {"v": "幅は四十センチメートル以上", "m": "作業床の幅（安衛則第563条）"}, {"v": "床材間の隙間は三センチメートル以下", "m": "作業床の床材間の隙間（安衛則第563条）"}, {"v": "床材と建地との隙間は十二センチメートル未満", "m": "作業床と建地との隙間（安衛則第563条）"}], "墜落・高所作業": [{"v": "高さが二メートル以上", "m": "作業床の設置等が問題となる高さの条件（安衛則第518条）"}]};
+const ARTICLE_SOURCES={"酸素欠乏・閉所": "https://www.mhlw.go.jp/web/t_doc?dataId=74105000&dataType=0&pageNo=1", "玉掛け・吊具": "https://www.mhlw.go.jp/web/t_doc?dataId=74020000&dataType=0&pageNo=2", "クレーン・移動式クレーン": "https://www.mhlw.go.jp/web/t_doc?dataId=74020000&dataType=0&pageNo=1", "足場・作業床": "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=10", "墜落・高所作業": "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=9"};
 const POINT_HELP={"酸素濃度": "入槽・入坑前だけでなく、再入場時や異常時など必要なタイミングで測定。測定位置や測定方法も確認する。", "硫化水素": "第二種酸素欠乏危険作業では硫化水素も管理対象。臭いの有無だけでは判断しない。", "換気": "送風機の能力・吸排気位置・ダクト配置を確認し、作業場所全体を安全な濃度に維持する。", "作業主任者": "必要な技能講習修了者が選任され、名目だけでなく作業方法の決定・濃度測定・設備点検・監視を実施しているか確認。", "救出体制": "監視人、連絡方法、空気呼吸器等、はしご・ロープ等の救出用具を事前に準備。無防備な二次災害救助を防ぐ。", "機種": "クレーン、移動式クレーン等の種類を確認。資格・検査・安全装置の規定が変わる。", "つり上げ荷重": "資格区分や適用規定を判断する基本値。機械の定格荷重と混同しない。", "運転資格": "機種とつり上げ荷重に応じ、免許・技能講習・特別教育のどれが必要か確認。", "アウトリガー": "張出し状態、地盤支持、敷板、障害物、沈下のおそれを確認。", "定格荷重": "作業半径・ブーム長等に応じた定格荷重内か確認。", "玉掛け資格": "つり上げ荷重に応じて技能講習又は特別教育の要否を確認。", "吊具の状態": "ワイヤ、スリング、シャックル、フック等の損傷・変形・摩耗・使用荷重を確認。", "荷の重心": "吊り荷の重心と玉掛け位置を確認し、傾き・荷崩れ・抜けを防止。", "合図者": "運転者と玉掛け作業者の合図方法・合図者を明確にする。", "吊り荷下の立入": "吊り荷の落下・振れ・挟まれの危険範囲へ人を入れない。", "作業床幅": "現場で実測し、法定寸法を満たすか確認。", "床材の隙間": "足先・工具の落下やつまずきにつながる隙間を確認。", "手すり・中さん": "欠損、取り外し、仮復旧、強度不足がないか確認。", "足場点検": "組立て・変更後や悪天候後など、必要な点検が実施・記録されているか確認。", "作業高さ": "床面から作業位置までの高さだけでなく、実際に墜落する高さ・開口部も確認。", "作業床の有無": "安定した作業床があるか。困難な場合の代替墜落防止措置も確認。", "開口部・端部": "手すり、覆い、囲い等の欠損・取り外し箇所を確認。", "墜落制止用器具": "必要な場合、適切な器具・取付設備・使用方法になっているか確認。"};
 const PURPOSE={"酸素欠乏・閉所": "酸素欠乏症等防止規則は、タンク、ピット、マンホール、槽、サイロなど、酸素不足や硫化水素中毒が起こり得る場所で作業する人を守るための規則です。危険場所の把握、作業前の濃度測定、換気、作業主任者の選任、特別教育、監視、退避・救出体制、呼吸用保護具までを一連で規制します。単に『酸素濃度が18%以上なら入ってよい』という規則ではなく、作業中も安全な雰囲気を維持し、異常時に直ちに退避・救出できる管理体制まで求めるものです。", "クレーン・移動式クレーン": "クレーン等安全規則は、クレーンや移動式クレーンによる吊り上げ作業で、過負荷、転倒、吊り荷の落下、接触・挟まれ等を防止するための規則です。機械の種類・つり上げ荷重に応じた運転資格、定格荷重、安全装置、作業方法、点検・検査などを規制します。", "玉掛け・吊具": "玉掛けでは、吊り荷を安全にクレーンへ掛け外しするため、作業者の資格・教育、ワイヤロープやスリング等の吊具、荷の重心、合図、作業開始前点検などが規制されます。『吊る機械』だけでなく『荷をどう掛けるか』が独立した重要管理項目です。", "足場・作業床": "足場に関する規定は、高所作業中の墜落・転落と、足場材・工具等の落下を防ぐため、作業床の寸法、床材の隙間、手すり等の墜落防止設備、足場の組立て・解体・点検等を具体的に規制します。", "墜落・高所作業": "労働安全衛生規則では、高さのある場所からの墜落・転落を防ぐため、作業床、手すり・覆い等の設備、墜落制止用器具等について規定しています。『高さ2m』は重要な基準ですが、2m未満なら何をしてもよいという意味ではなく、危険の程度に応じた安全措置が必要です。"};
 const ARTICLE_TEXT={"墜落・高所作業": [{"n": "安衛則 第518条", "h": "高さ2m以上の作業床", "s": "高さ2m以上の箇所で墜落のおそれがある場合、原則として作業床を設けます。設置が困難な場合は、防網や要求性能墜落制止用器具等の代替措置を講じます。"}, {"n": "安衛則 第519条", "h": "開口部・端部", "s": "高さ2m以上の作業床の端や開口部等で墜落のおそれがある箇所には、囲い、手すり、覆い等の墜落防止設備を設けます。"}], "足場・作業床": [{"n": "安衛則 第563条", "h": "足場の作業床", "s": "高さ2m以上の足場の作業場所には作業床を設けます。つり足場を除き、幅40cm以上、床材間の隙間3cm以下、一定の場合の床材と建地との隙間12cm未満とする基準があります。墜落防止設備も必要です。"}], "車両系建設機械": [{"n": "安衛則 第155条", "h": "作業計画", "s": "車両系建設機械を使用するときは、機械の種類・能力、運行経路、作業方法を示した作業計画をあらかじめ定め、関係労働者へ周知します。"}, {"n": "安衛則 第156条", "h": "制限速度", "s": "最高速度10km/h以下の機械を除き、地形・地質等に応じた適正な制限速度を定め、その速度を超えて運転してはいけません。"}, {"n": "安衛則 第157条", "h": "転落等の防止", "s": "路肩崩壊、地盤の不同沈下等による転倒・転落を防ぐ措置が必要です。危険がある路肩・傾斜地等では誘導者を配置します。"}, {"n": "安衛則 第158条", "h": "接触の防止", "s": "運転中の車両系建設機械に接触する危険がある箇所への立入りを禁止します。誘導者を配置して誘導させる場合は例外です。"}], "クレーン・移動式クレーン": [{"n": "クレーン則 第67条", "h": "1t未満の移動式クレーン運転", "s": "つり上げ荷重1t未満の移動式クレーン運転業務には、安全のための特別教育が必要です。"}, {"n": "クレーン則 第68条", "h": "1t以上5t未満の移動式クレーン", "s": "つり上げ荷重1t以上5t未満の小型移動式クレーンは、小型移動式クレーン運転技能講習修了者が運転できます。5t以上は移動式クレーン運転士免許の区分に関係します。"}, {"n": "クレーン則 第69条", "h": "過負荷禁止", "s": "定格荷重を超える荷重をかけて使用してはいけません。"}, {"n": "クレーン則 第70条の2", "h": "定格荷重の表示", "s": "運転者と玉掛け作業者が定格荷重を常時把握できる表示その他の措置が必要です。"}], "玉掛け・吊具": [{"n": "クレーン則 第220条", "h": "玉掛用具の点検", "s": "ワイヤロープ、チェーン、繊維ロープ、繊維ベルト、フック、シャックル等は、その日の作業開始前に異常の有無を点検します。"}, {"n": "クレーン則 第221条", "h": "1t以上の玉掛け", "s": "つり上げ荷重1t以上のクレーン等の玉掛け業務は、玉掛け技能講習修了者等の有資格者でなければ行えません。"}, {"n": "クレーン則 第222条", "h": "1t未満の玉掛け", "s": "つり上げ荷重1t未満のクレーン等の玉掛け業務でも、特別教育が必要です。"}], "熱中症対策": [{"n": "安衛則 第612条の2", "h": "熱中症を生ずるおそれのある作業", "s": "熱中症の自覚症状や疑いを報告させる体制をあらかじめ整備・周知し、作業からの離脱、身体冷却、必要に応じた医師の診察等の手順も作業場ごとに定めて周知します。"}], "酸素欠乏・閉所": [{"n": "酸欠則 第1条", "h": "事業者の責務", "s": "酸素欠乏症等を防止するため、作業方法の確立、作業環境の整備その他の必要な措置を講ずることを求めています。"}, {"n": "酸欠則 第3条・第4条", "h": "作業環境の把握・測定", "s": "酸素欠乏危険作業では、作業開始前などに作業場所の空気を測定し、酸素欠乏や硫化水素の危険を把握します。"}, {"n": "酸欠則 第5条", "h": "換気", "s": "作業場所の酸素濃度を18%以上に保つよう換気します。第二種酸素欠乏危険作業では、さらに硫化水素濃度を10ppm以下に保つことが必要です。純酸素による換気は禁止されています。"}, {"n": "酸欠則 第5条の2", "h": "空気呼吸器等", "s": "換気できない、又は著しく困難な場合には、同時就業する労働者数以上の空気呼吸器・酸素呼吸器・送気マスク等を備え、使用させます。"}, {"n": "酸欠則 第11条", "h": "作業主任者", "s": "第一種・第二種の区分に応じた技能講習修了者から作業主任者を選任し、作業方法の決定・指揮、濃度測定、測定器具・換気装置・呼吸用保護具等の点検、使用状況の監視を行わせます。"}, {"n": "酸欠則 第12条", "h": "特別教育", "s": "酸素欠乏危険作業に従事する労働者には、発生原因、症状、空気呼吸器等の使用方法、退避・救急そ生等について特別教育が必要です。"}, {"n": "酸欠則 第13条", "h": "監視", "s": "作業状況を常時監視し、異常時に作業主任者や関係者へ直ちに通報できる体制を設けます。"}, {"n": "酸欠則 第14条～第16条", "h": "退避・救出", "s": "酸素欠乏等のおそれが生じたら直ちに作業を中止して退避させ、立入禁止措置を行います。救出用具を備え、救出者には空気呼吸器等を使用させます。"}]};
@@ -61,7 +160,7 @@ document.getElementById("topicStat").textContent=`テーマ ${DATA.length}件`;
 document.getElementById("lawStat").textContent=`法令・規則 ${laws.length}系統`;
 document.getElementById("kwStat").textContent=`検索語 ${DATA.reduce((a,x)=>a+x.kw.length,0)}語`;
 laws.sort().forEach(l=>{const o=document.createElement("option");o.value=l;o.textContent=l;lawFilter.appendChild(o)})
-const quick=document.getElementById("quick");QUICK.forEach(k=>{const b=document.createElement("button");b.className="chip";b.textContent=k;b.onclick=()=>{q.value=k;render()};quick.appendChild(b)})
+const quick=document.getElementById("quick");QUICK.forEach(k=>{const b=document.createElement("button");b.className="chip";b.textContent=k;b.onclick=()=>{q.value=k;currentCat="";lawFilter.value="";drawCats();render()};quick.appendChild(b)})
 const cats=[...new Set(DATA.map(x=>x.cat))].sort(),sc=document.getElementById("sideCats");
 function drawCats(){sc.innerHTML="";const a=document.createElement("button");a.className="sidebtn"+(!currentCat?" active":"");a.innerHTML=`<span>すべて</span><span class="n">${DATA.length}</span>`;a.onclick=()=>{currentCat="";drawCats();render()};sc.appendChild(a);cats.forEach(c=>{const n=DATA.filter(x=>x.cat===c).length,b=document.createElement("button");b.className="sidebtn"+(currentCat===c?" active":"");b.innerHTML=`<span>${c}</span><span class="n">${n}</span>`;b.onclick=()=>{currentCat=c;drawCats();render()};sc.appendChild(b)})}
 function passesMode(x){if(mode==="official")return x.status.includes("公式");if(mode==="numbers")return x.facts.length>0;if(mode==="beginner")return !!x.beginner;return true}
@@ -70,25 +169,45 @@ function statusClass(s){return s.includes("公式")?"st-ok":"st-mid"}
 function render(){const d=filtered();count.textContent=`${d.length}件`;res.innerHTML="";if(!d.length){res.innerHTML='<div class="empty">該当候補がありません。別の現場ワードでも検索してください。</div>';return}d.forEach(x=>{const c=document.createElement("article");c.className="card";c.innerHTML=`<div class="badges"><span class="badge">${x.cat}</span><span class="badge ${statusClass(x.status)}">${x.status}</span></div><div class="topic">${x.title}</div><div class="law">${x.law}</div><div class="desc">${x.desc}</div><div class="facts">${x.facts.map(f=>`<span class="fact">${f}</span>`).join("")}</div><div class="kw">${x.kw.slice(0,13).map(k=>`<span class="k">${k}</span>`).join("")}</div><div class="bottom"><div class="articlemini">関連：${x.articles.join(" / ")}</div><button class="more" onclick="openD(${DATA.indexOf(x)})">詳しく見る</button></div>`;res.appendChild(c)})}
 function openD(i){
  const x=DATA[i], src=x.source&&x.source[0]?`<a href="${x.source[1]||'#'}" target="_blank">${x.source[0]}</a>`:"確認中";
- const purpose=PURPOSE[x.title]||`${x.desc} このテーマでは、対象作業・設備・物質の条件を確認し、必要な設備措置、資格・教育、点検、届出等を関連法令に沿って判断します。`;
+ const purpose=PURPOSE[x.title]||`${x.desc} このテーマでは、対象作業・設備・物質・現場条件を確認し、設備措置、資格・教育、点検、届出等を関連法令に沿って判断します。`;
  const points=x.first.map(v=>`<div class="pointcard"><div class="pointname">${v}</div><div class="pointdesc">${POINT_HELP[v]||`${v}について、現物・記録・作業方法を確認し、法令上又は現場ルール上の要求を満たしているか確認します。`}</div></div>`).join("");
- const metrics=x.facts.length?x.facts.map(f=>{const p=f.split("｜");return `<div class="metriccard"><div class="metricvalue">${p[0]}</div><div class="metricmeaning">${p.slice(1).join("｜")||"重要基準"}</div></div>`}).join(""):`<div class="box">このテーマの数値基準は、公式一次資料との照合を進めています。確認できたものから追加します。</div>`;
+ const ms=EXACT_METRICS[x.title]||[];
+ const metrics=ms.length?ms.map(m=>`<div class="metriccard"><div class="metricvalue">${m.v}</div><div class="metricmeaning">${m.m}</div></div>`).join(""):`<div class="box">このテーマの規制値・基準値・期限は、条文原文との照合が完了したものから掲載します。</div>`;
  const arts=ARTICLE_TEXT[x.title]||[];
- const articleHtml=arts.length?arts.map(a=>`<div class="articlecard"><div class="articlehead">${a.n}｜${a.h}</div><div class="articlebody">${a.s}</div></div>`).join(""):`<div class="box">${x.articles.join("\n")}\n\n条番号・内容は一次資料との照合後に具体化します。</div>`;
+ const url=ARTICLE_SOURCES[x.title]||(x.source?x.source[1]:"");
+ const articleHtml=arts.length?arts.map(a=>`<div class="articlecard"><div class="articlehead">${a.n}｜${a.h}</div><div class="articlebody">${a.s}</div>${url?`<a class="articlelink" href="${url}" target="_blank">公式条文を確認 ↗</a>`:""}</div>`).join(""):`<div class="box">${x.articles.join("\n")}\n\n条番号・内容は一次資料との照合後に具体化します。</div>`;
+ const originals=ORIGINAL_TEXT[x.title]||[];
+ const originalHtml=originals.length?originals.map(o=>`<div class="original"><div class="originalname">${o.n}</div><div class="originaltext">${o.t}</div>${url?`<a class="articlelink" href="${url}" target="_blank">出典：公式法令ページ ↗</a>`:""}</div>`).join(""):`<div class="box">条文原文は公式一次資料との照合が完了したテーマから順次掲載します。</div>`;
+ const kwHtml=x.kw.map(k=>`<button class="kwbtn" onclick="searchKeyword('${String(k).replace(/'/g,"\\'")}')">${k}</button>`).join("");
  document.getElementById("dt").textContent=x.title;
  document.getElementById("db").innerHTML=`
   <div class="badges"><span class="badge">${x.cat}</span><span class="badge ${statusClass(x.status)}">${x.status}</span></div>
   <div class="section"><h3>この法令・規則は何を規制する？</h3><div class="purpose">${purpose}</div></div>
+  <div class="section"><h3>規制値・基準値・期限</h3><div class="metricgrid">${metrics}</div></div>
   <div class="section"><h3>現場で確認するポイント</h3><div class="pointgrid">${points}</div></div>
-  <div class="section"><h3>重要数値・期限・基準</h3><div class="metricgrid">${metrics}</div></div>
   <div class="section"><h3>関連条文・具体的な内容</h3>${articleHtml}</div>
-  <div class="section"><h3>関連する検索ワード</h3><div class="cloud">${x.kw.map(k=>`<span>${k}</span>`).join("")}</div></div>
+  <div class="section"><h3>条文原文（主要箇所）</h3>${originalHtml}</div>
+  <div class="section"><h3>関連する検索ワード</h3><div class="cloud">${kwHtml}</div></div>
   <div class="section"><h3>一次資料</h3><div class="box source">${src}</div></div>
   <div class="warn">適用判断は設備仕様・作業条件・物質・人数・地域・工事内容等で変わります。数値だけで適用を断定せず、一次資料と現場条件を合わせて確認します。</div>`;
  document.getElementById("drawer").classList.add("open");document.getElementById("bg").classList.add("open")
 }
+function searchKeyword(k){
+ q.value=k;
+ currentCat="";
+ lawFilter.value="";
+ mode="all";
+ document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===0));
+ drawCats();
+ closeD();
+ render();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
 function closeD(){document.getElementById("drawer").classList.remove("open");document.getElementById("bg").classList.remove("open")}
 function showAll(){q.value="";currentCat="";lawFilter.value="";mode="all";document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===0));drawCats();render()}
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(z=>z.classList.remove("active"));t.classList.add("active");mode=t.dataset.mode;render()})
-document.getElementById("go").onclick=render;q.addEventListener("keydown",e=>{if(e.key==="Enter")render()});lawFilter.onchange=render;document.getElementById("close").onclick=closeD;document.getElementById("bg").onclick=closeD;drawCats();render();
+function globalSearch(){currentCat="";lawFilter.value="";mode="all";document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===0));drawCats();render()}
+document.getElementById("go").onclick=globalSearch;
+q.addEventListener("keydown",e=>{if(e.key==="Enter")globalSearch()});
+lawFilter.onchange=render;document.getElementById("close").onclick=closeD;document.getElementById("bg").onclick=closeD;drawCats();render();
 </script></body></html>
