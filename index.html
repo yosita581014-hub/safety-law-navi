@@ -1,5 +1,5 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>安全法令ナビ v28</title>
+<title>安全法令ナビ v29</title>
 <style>
 :root{--navy:#0c304e;--blue:#125b78;--cyan:#26829e;--bg:#f2f6f9;--text:#182530;--muted:#6d7c88;--line:#dde6ec;--green:#2f7c55;--amber:#9c6b1b;--red:#a84444}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic",Meiryo,sans-serif}
@@ -509,6 +509,9 @@ main{max-width:1240px;margin:-28px auto 55px;padding:0 13px}.searchbox{backgroun
 #suggestions .suggestionItem{pointer-events:auto!important}
 #suggestions .suggestKind,
 #suggestions .suggestLabel{pointer-events:none}
+
+/* ===== v29 cascading legal filters ===== */
+#typeFilter,#lawFilter{width:100%}
 </style></head><body>
 <header><div class="wrap"><div class="head"><div><h1>安全法令ナビ</h1><div class="sub">現場で使える。現場ワード・法令名・条文番号・条文本文から、規制値・資格・届出・現場ルールへ逆引き。</div></div><div class="actions"><button class="ghost" onclick="showAll()">全件表示</button><button class="ghost" onclick="window.print()">印刷</button></div></div><div class="stats"><span class="stat" id="topicStat"></span><span class="stat" id="lawStat"></span><span class="stat" id="kwStat"></span><span class="stat">公式一次資料リンク付き</span></div></div></header>
 <main><section class="searchbox"><div class="label">現場で見たもの・作業・設備・物質・資格・届出名を入力</div><div class="searchrowwrap"><div class="row"><input id="q" placeholder="例：あん→労働安全衛生法・規則 / あしば / 563条"><button class="primary" id="go">検索</button></div>
@@ -584,6 +587,22 @@ function legalType(x){
   if(/法$/.test(x.law||""))return "法律";
   return "その他";
 }
+function rebuildLawFilter(){
+  const selectedType=typeFilter.value;
+  const current=lawFilter.value;
+  const laws=[...new Set(DATA
+    .filter(x=>!selectedType||legalType(x)===selectedType)
+    .map(x=>x.law)
+    .filter(Boolean))]
+    .sort((a,b)=>a.localeCompare(b,"ja"));
+
+  lawFilter.innerHTML=`<option value="">${selectedType?selectedType+"のすべて":"すべての法律・政令・規則・条例・ルール"}</option>`
+    +laws.map(l=>`<option value="${l}">${l}</option>`).join("");
+
+  if(laws.includes(current)) lawFilter.value=current;
+  else lawFilter.value="";
+}
+
 function statusClass(s){return s.includes("公式")?"st-ok":"st-mid"}
 function render(){const d=filtered();count.textContent=`${d.length}件`;res.innerHTML="";if(!d.length){res.innerHTML='<div class="empty">該当候補がありません。別の現場ワードでも検索してください。</div>';return}d.forEach(x=>{const c=document.createElement("article");c.className="card";c.innerHTML=`<div class="badges"><span class="badge">${x.cat}</span><span class="badge legaltype">${legalType(x)}</span><span class="badge ${statusClass(x.status)}">${x.status}</span></div>
   ${E_GOV_LAW_IDS[x.law]?`<div class="lawid">e-Gov Law ID：${E_GOV_LAW_IDS[x.law]}</div>`:""}<div class="topic">${x.title}</div><div class="law">${x.law}</div><div class="desc">${x.desc}</div><div class="facts">${x.facts.map(f=>`<span class="fact">${f}</span>`).join("")}</div><div class="kw">${x.kw.slice(0,13).map(k=>`<span class="k">${k}</span>`).join("")}</div><div class="bottom"><div class="articlemini">関連：${x.articles.join(" / ")}</div><button class="more" onclick="openD(${DATA.indexOf(x)})">詳しく見る</button></div>`;res.appendChild(c)})}
@@ -634,7 +653,7 @@ function searchKeyword(k){
  window.scrollTo({top:0,behavior:"smooth"});
 }
 function closeD(){document.getElementById("drawer").classList.remove("open");document.getElementById("bg").classList.remove("open")}
-function showAll(){q.value="";currentCat="";typeFilter.value="";lawFilter.value="";mode="all";document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===0));drawCats();render()}
+function showAll(){q.value="";currentCat="";typeFilter.value="";lawFilter.value="";rebuildLawFilter();mode="all";document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===0));drawCats();render()}
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(z=>z.classList.remove("active"));t.classList.add("active");mode=t.dataset.mode;render()})
 
 
@@ -764,11 +783,11 @@ function pickSuggestion(v){
   requestAnimationFrame(hideSuggestions);
   setTimeout(hideSuggestions,50);
 }
-function globalSearch(){currentCat="";typeFilter.value="";lawFilter.value="";mode="all";document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===0));drawCats();render()}
+function globalSearch(){currentCat="";typeFilter.value="";lawFilter.value="";rebuildLawFilter();mode="all";document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",i===0));drawCats();render()}
 document.getElementById("go").onclick=()=>{hideSuggestions();globalSearch();q.blur()};
 q.addEventListener("input",showSuggestions);
 q.addEventListener("focus",showSuggestions);
 q.addEventListener("keydown",e=>{if(e.key==="Enter"){hideSuggestions();globalSearch();q.blur()}});
 document.addEventListener("click",e=>{if(!e.target.closest(".searchbox")&&!e.target.closest("#suggestions"))hideSuggestions()});
-typeFilter.onchange=render;lawFilter.onchange=render;document.getElementById("close").onclick=closeD;document.getElementById("bg").onclick=closeD;drawCats();render();
+typeFilter.onchange=()=>{rebuildLawFilter();render()};lawFilter.onchange=render;document.getElementById("close").onclick=closeD;document.getElementById("bg").onclick=closeD;rebuildLawFilter();drawCats();render();
 </script></body></html>
