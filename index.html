@@ -1,5 +1,5 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>安全法令ナビ v118</title>
+<title>安全法令ナビ v123</title>
 <style>
 :root{--navy:#0c304e;--blue:#125b78;--cyan:#26829e;--bg:#f2f6f9;--text:#182530;--muted:#6d7c88;--line:#dde6ec;--green:#2f7c55;--amber:#9c6b1b;--red:#a84444}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic",Meiryo,sans-serif}
@@ -1044,6 +1044,299 @@ body{font-size:15px!important;line-height:1.72!important;color:#17252c!important
  #detail .field-metric-card{grid-template-columns:1fr!important}
  #detail .field-metric-card .field-metric-value{text-align:left!important}
 }
+
+/* v120 — actual detail drawer */
+#db{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif!important;color:#172b34!important}
+#db .section{border:1px solid #d8e2e7!important;border-radius:12px!important;box-shadow:none!important;padding:18px!important;margin:12px 0!important;background:#fff!important}
+#db .section h3{font-size:17px!important;font-weight:800!important;line-height:1.4!important;margin:0 0 13px!important;color:#18333f!important}
+#db .fieldtop{border-left:5px solid #557786!important}
+#db .legalcompact{display:flex;align-items:center;gap:7px;font-size:15px!important;padding:3px 0!important}
+#db .legalcompact b{font-size:16px!important}
+#db .purpose{font-size:15px!important;line-height:1.8!important}
+#db .metricgrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+#db .fieldmetric{display:block!important;padding:14px!important;border:1px solid #dce5e9!important;border-radius:10px!important;background:#f8fafb!important}
+#db .metricname{font-size:14px!important;font-weight:800!important;margin-bottom:4px!important}
+#db .metriccontext{font-size:12px!important;color:#647780!important;margin-bottom:10px!important}
+#db .metricline{display:flex!important;align-items:baseline!important;justify-content:space-between!important;gap:10px!important;border-top:1px solid #e1e8eb!important;padding-top:8px!important}
+#db .metricline span{font-size:11px!important;color:#667982!important}
+#db .metricline b{font-size:18px!important;text-align:right!important}
+#db .field-inline-note{font-size:11px!important;font-weight:500!important;color:#71838b!important;margin-left:6px!important}
+#db .lowpriority{background:#fbfcfc!important}
+#db .adminbottom{background:#f8f9fa!important;margin-top:18px!important}
+#db .adminbottom h3{font-size:14px!important}
+@media(max-width:700px){
+ #db .section{padding:15px!important}
+ #db .section h3{font-size:16px!important}
+ #db .metricgrid{grid-template-columns:1fr!important}
+}
+
+/* v121 — readability + regulation-first wording */
+#db{font-size:16px!important;line-height:1.75!important}
+#db .section{padding:20px!important;margin:14px 0!important}
+#db .section h3{
+  font-size:18px!important;
+  font-weight:800!important;
+  line-height:1.45!important;
+  margin:0 0 15px!important;
+  letter-spacing:.01em!important
+}
+#db .section .box,
+#db .section .purpose,
+#db .section p,
+#db .section li,
+#db .section td,
+#db .section dd{
+  font-size:15.5px!important;
+  line-height:1.8!important
+}
+#db .section b,
+#db .section strong{
+  font-size:inherit
+}
+#db .legalcompact{font-size:16px!important;line-height:1.7!important}
+#db .legalcompact b{font-size:16px!important}
+#db .metricname{font-size:16px!important;line-height:1.55!important}
+#db .metriccontext{font-size:14px!important;line-height:1.6!important;margin-top:4px!important;margin-bottom:10px!important}
+#db .metricline span{font-size:13px!important;font-weight:700!important}
+#db .metricline b{font-size:19px!important;line-height:1.4!important}
+#db .field-inline-note{font-size:13px!important;line-height:1.5!important}
+#db .currentruledate,
+#db .lawid,
+#db .muted,
+#db .sourcenote,
+#db .relatedsourcehead{
+  font-size:13.5px!important;
+  line-height:1.65!important
+}
+#db a{font-size:15px!important;line-height:1.7!important}
+#db .badge{font-size:13px!important}
+
+/* Document cards: larger type, less dead space */
+#db .doccard,
+#db .documentcard,
+#db [class*="document"] .guidecard,
+#db [class*="doc"] .guidecard{
+  padding:14px 16px!important;
+  min-height:0!important
+}
+#db .doccard *,
+#db .documentcard *,
+#db [class*="document"] .guidecard *,
+#db [class*="doc"] .guidecard *{
+  line-height:1.7!important
+}
+#db .doccard b,
+#db .documentcard b,
+#db [class*="document"] .guidecard b,
+#db [class*="doc"] .guidecard b{
+  font-size:15px!important
+}
+
+/* Known guide-card patterns */
+#db .guidecard{padding:14px 16px!important;min-height:0!important}
+#db .guidecard .guide-title,
+#db .guidecard .guidetitle{font-size:15.5px!important;font-weight:800!important}
+#db .guidecard .guide-meta,
+#db .guidecard .guidemeta{font-size:14px!important}
+#db .guidecard .guide-note,
+#db .guidecard .guidenote{font-size:14px!important}
+
+/* Article/source area */
+#db .articlecard,
+#db .articlebox{padding:16px!important}
+#db .articlecard *,
+#db .articlebox *{font-size:15px!important;line-height:1.8!important}
+#db .articlecard a,
+#db .articlebox a{font-size:15px!important;font-weight:700!important}
+
+@media(max-width:700px){
+  #db{font-size:16px!important}
+  #db .section{padding:16px!important;margin:12px 0!important}
+  #db .section h3{font-size:18px!important}
+  #db .section .box,
+  #db .section .purpose,
+  #db .section p,
+  #db .section li,
+  #db .section td,
+  #db .section dd{font-size:16px!important}
+  #db .metricname{font-size:16px!important}
+  #db .metriccontext{font-size:14px!important}
+  #db .metricline span{font-size:13px!important}
+  #db .metricline b{font-size:19px!important}
+  #db .field-inline-note{display:block!important;margin:4px 0 0!important;font-size:13px!important}
+  #db a{font-size:15.5px!important}
+}
+
+/* v122 — actual rendered class typography */
+#db .trainingrow,
+#db .documentrow,
+#db .contactrow,
+#db .controlrow,
+#db .emergencyrow,
+#db .applicabilityrow,
+#db .decisionrow,
+#db .original{
+  padding:15px 16px!important;
+  min-height:0!important;
+}
+
+#db .trainingkind,
+#db .documentname,
+#db .contactto,
+#db .controltype,
+#db .emergencytrigger,
+#db .applicabilitycheck,
+#db .decisionwork,
+#db .originalname{
+  font-size:16px!important;
+  font-weight:800!important;
+  line-height:1.6!important;
+  color:#18333f!important;
+}
+
+#db .traininghours,
+#db .trainingrecord,
+#db .trainingdetail,
+#db .documentwhen,
+#db .documentcheck,
+#db .contactwhen,
+#db .contactwhat,
+#db .controlitem,
+#db .controlcheck,
+#db .emergencyfirst,
+#db .emergencynext,
+#db .applicabilityyes,
+#db .applicabilityno,
+#db .decisioncell,
+#db .originaltext{
+  font-size:15px!important;
+  line-height:1.75!important;
+  margin-top:7px!important;
+}
+
+#db .trainingnote,
+#db .contactnote,
+#db .emergencynote,
+#db .applicabilitynote,
+#db .decisionnote{
+  font-size:14px!important;
+  line-height:1.7!important;
+  margin-top:8px!important;
+  padding-top:8px!important;
+}
+
+#db .traininghours b,
+#db .trainingrecord b,
+#db .documentwhen b,
+#db .contactwhen b,
+#db .emergencyfirst b,
+#db .emergencynext b,
+#db .applicabilityyes b,
+#db .applicabilityno b,
+#db .decisioncell b{
+  font-size:14px!important;
+  min-width:auto!important;
+  margin-right:10px!important;
+  color:#4f6671!important;
+}
+
+#db .documentgrid,
+#db .traininggrid,
+#db .contactgrid,
+#db .controlgrid,
+#db .emergencygrid,
+#db .applicabilitygrid,
+#db .decisiongrid{
+  gap:10px!important;
+}
+
+/* Legal article text must not be smaller than practical cards */
+#db .articlehead{font-size:16px!important;line-height:1.6!important}
+#db .articlebody{font-size:15px!important;line-height:1.8!important}
+#db .articlelink{font-size:15px!important;line-height:1.7!important}
+#db .originaltext{color:#354f5b!important}
+
+/* Source links and current-rule rows */
+#db .currentruleitem,
+#db .relatedsources,
+#db .source{
+  font-size:15px!important;
+  line-height:1.8!important
+}
+
+/* Avoid oversized empty cards */
+#db .documentrow,
+#db .trainingrow{display:block!important}
+#db .documentcheck,
+#db .trainingdetail{max-width:900px!important}
+
+@media(max-width:700px){
+  #db .trainingrow,
+  #db .documentrow,
+  #db .contactrow,
+  #db .controlrow,
+  #db .emergencyrow,
+  #db .applicabilityrow,
+  #db .decisionrow,
+  #db .original{padding:14px!important}
+
+  #db .trainingkind,
+  #db .documentname,
+  #db .contactto,
+  #db .controltype,
+  #db .emergencytrigger,
+  #db .applicabilitycheck,
+  #db .decisionwork,
+  #db .originalname{font-size:16px!important}
+
+  #db .traininghours,
+  #db .trainingrecord,
+  #db .trainingdetail,
+  #db .documentwhen,
+  #db .documentcheck,
+  #db .contactwhen,
+  #db .contactwhat,
+  #db .controlitem,
+  #db .controlcheck,
+  #db .emergencyfirst,
+  #db .emergencynext,
+  #db .applicabilityyes,
+  #db .applicabilityno,
+  #db .decisioncell,
+  #db .originaltext{font-size:15.5px!important}
+}
+
+/* v123 — compact legal basis on search cards */
+.cardbasis{
+  margin:12px 0 10px;
+  padding:10px 12px;
+  border-left:3px solid #7d9aa7;
+  background:#f7fafb;
+  border-radius:7px;
+}
+.cardbasislabel{
+  font-size:12px;
+  font-weight:800;
+  color:#5c727c;
+  margin-bottom:5px;
+}
+.cardbasisrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px 8px;
+  align-items:baseline;
+  font-size:13px;
+  line-height:1.55;
+  color:#27434f;
+}
+.cardbasisrow+.cardbasisrow{margin-top:3px}
+.cardbasislaw{font-weight:800}
+.cardbasisrefs{font-weight:650}
+@media(max-width:700px){
+  .cardbasis{padding:9px 10px}
+  .cardbasislabel{font-size:12px}
+  .cardbasisrow{font-size:13.5px}
+}
 </style></head><body>
 <div class="auditbar">
   <span>横断監査 2026-10-03</span>
@@ -1073,7 +1366,7 @@ body{font-size:15px!important;line-height:1.72!important;color:#17252c!important
         <option value="relevance">おすすめ順</option>
         <option value="title">テーマ名順</option>
         <option value="law">法令名順</option>
-        <option value="verified">確認情報が多い順</option>
+        <option value="legaltype">法令区分順</option>
       </select>
     </div>
   </div>
@@ -1107,7 +1400,7 @@ body{font-size:15px!important;line-height:1.72!important;color:#17252c!important
   <div id="results" class="grid"></div></section></div><div class="footer">法律・政令・省令/規則・告示/通達/指針・条例・現場ルールを区分して検索できます。条例は自治体ごとに異なるため、対象地域を特定して適用条例を確認します。</div></main>
 <div class="drawerbg" id="bg"></div><aside class="drawer" id="drawer"><div class="dhead"><div class="dtitle" id="dt"></div><button class="close" id="close">×</button></div><div class="dbody" id="db"></div></aside>
 <script>
-const APP_VERSION="v118";
+const APP_VERSION="v123";
 
 
 const E_GOV_LAW_IDS={"労働安全衛生規則": "347M50002000032", "クレーン等安全規則": "347M50002000034", "酸素欠乏症等防止規則": "347M50002000042"};
@@ -1126,7 +1419,7 @@ const EXPORT_POLICY={"purpose":"全社展開時のレビュー会議・役員説
 const SEARCH_FEEDBACK_POLICY={"purpose":"検索しても該当しなかった語を、その場で報告テンプレート化して検索辞書改善につなげる","note":"端末内だけで動作し、外部送信は行わない。報告は利用者がコピーして所定の窓口へ送付する運用を想定。"};
 const ADMIN_DASHBOARD={"purpose":"全49テーマの保守状況を管理者が横断確認するための品質ダッシュボード","checks":["更新確認優先度","確認情報5項目","現行基準欄の有無","一次資料セットの有無","適用判定の有無"]};
 const REPORT_POLICY={"purpose":"全社展開時に、誤記・法改正・リンク切れ・現場ルール差異を利用者から回収するための報告テンプレート","categories":["法令・条文の誤り","数値・期限の誤り","法改正・施行日の更新","一次資料リンク切れ","現場・客先ルールとの差異","検索で見つからない","その他"],"required":["対象テーマ","指摘区分","現在の表示内容","正しいと思われる内容","根拠URL・文書名","確認日"]};
-const CHANGELOG=[{"version":"v118","date":"2026-10-03","type":"詳細UI再構築","text":"詳細ページを現場判断中心に削って再構築。重複セクション・管理情報・FAQ・関連条文丸囲みを除去し、数値カードの主従を修正。"},{"version":"v117","date":"2026-10-03","type":"詳細UI再設計","text":"詳細ページを実務優先順へ全面再配置。法令区分→要点→数値→適用条件→判断→作業前確認を上位化し、管理・共有系を最下部へ移動。"},{"version":"v116","date":"2026-10-03","type":"UI改善","text":"検索結果ソートを追加し、詳細ページに重要情報サマリーを新設。検索結果上部のHTML構造も整理。"},{"version":"v115","date":"2026-10-03","type":"UI改善","text":"詳細ページの情報強弱・カード階層・クイックナビ・検索結果カードを再設計。"},{"version":"v113","date":"2026-10-03","type":"一括強化","text":"残存の薄い主要テーマへFAQ・必要書類・責任分担を追加し、全49テーマの実務ガイド底上げを最終段階へ。"},{"version":"v112","date":"2026-10-03","type":"一括強化","text":"高所・足場・車両・クレーン・玉掛け・特化物・熱中症・産廃・客先ルール等10テーマを一括強化。"},{"version":"v111","date":"2026-10-03","type":"一括強化","text":"クレーン点検・研削・職長・元方・管理体制・健診・資格・届出・騒音振動の10テーマを一括強化。"},{"version":"v110","date":"2026-10-03","type":"一括強化","text":"追加10テーマへFAQ・必要書類・責任分担を一括追加し、実務ガイド密度をさらに底上げ。"},{"version":"v109","date":"2026-10-03","type":"一括強化","text":"実務ガイド0件だった10テーマにFAQ・必要書類・責任分担を一括追加。"},{"version":"v108","date":"2026-10-03","type":"品質管理","text":"全49テーマの実務ガイドカバレッジ監査を追加し、整備が薄いテーマを可視化。"},{"version":"v107","date":"2026-10-03","type":"信頼性","text":"43件の一次資料URLをドメイン・参照テーマ・利用箇所で追跡できる一次資料マスターを追加。"},{"version":"v106","date":"2026-10-03","type":"信頼性","text":"一次資料URLの構造監査（URL形式・HTTPS・ドメイン分類・重複）を管理画面へ追加。"},{"version":"v105","date":"2026-10-03","type":"初心者支援","text":"既存の適用条件・資格判定データから30秒判定フローを自動生成する機能を追加。"},{"version":"v104","date":"2026-10-03","type":"共有","text":"1テーマを会議・上司説明向けに印刷／共有できるレビューシート機能を追加。"},{"version":"v103","date":"2026-10-03","type":"全社運用","text":"品質ダッシュボードのテーマ別状況をCSV出力できる管理機能を追加。"},{"version":"v102","date":"2026-10-03","type":"検索改善","text":"検索0件時のフィードバック導線と未ヒット語報告テンプレートを追加。"},{"version":"v101","date":"2026-10-03","type":"品質管理","text":"管理者向け品質ダッシュボードを追加。高優先度・確認情報不足・現行基準未整備を横断確認可能に。"},{"version":"v100","date":"2026-10-03","type":"全社運用","text":"誤記・法改正・リンク切れ等を利用者から回収する指摘報告テンプレートを追加。"},{"version":"v99","date":"2026-10-03","type":"品質管理","text":"改正影響・更新優先度・変更履歴の管理画面を追加。"},{"version":"v118","date":"2026-10-03","type":"ガバナンス","text":"更新管理・利用ルール、版情報、確認基準日を追加。"},{"version":"v97","date":"2026-10-03","type":"実務","text":"提出先・相談先の目安を追加。"},{"version":"v96","date":"2026-10-03","type":"実務","text":"必要書類・証憑チェックを追加。"},{"version":"v95","date":"2026-10-03","type":"教育","text":"教育・講習・資格確認を追加。"}];
+const CHANGELOG=[{"version":"v123","date":"2026-10-03","type":"トップカード法令根拠表示","text":"検索結果カードへ『主な根拠法令・条文』をコンパクト表示。1テーマに複数法令がある場合は法令ごとに複数行表示。連続条文は範囲表記へ圧縮。公開カードの確認情報スコア・旧機能バッジを削除。"},{"version":"v123","date":"2026-10-03","type":"視認性・安定化","text":"実際の描画クラス（書類・資格・適用条件・判定・緊急時・条文等）を15〜16pxへ統一。詳細画面の後処理並べ替えを停止し、生成テンプレートを唯一の表示順とした。"},{"version":"v122","date":"2026-10-03","type":"視認性・表記修正","text":"『重要な数値・基準』を『法令上の基準・義務』へ変更。主要本文15.5〜16px、見出し18px、補足13〜14pxへ拡大し、書類カードの余白を圧縮。"},{"version":"v121","date":"2026-10-03","type":"詳細ページ再構築","text":"後処理を廃止し、詳細ページ生成テンプレートを直接修正。法令区分を最上位に固定し、不要・重複項目を生成段階から除外。"},{"version":"v120","date":"2026-10-03","type":"詳細UI再構築","text":"詳細ページを現場判断中心に削って再構築。重複セクション・管理情報・FAQ・関連条文丸囲みを除去し、数値カードの主従を修正。"},{"version":"v117","date":"2026-10-03","type":"詳細UI再設計","text":"詳細ページを実務優先順へ全面再配置。法令区分→要点→数値→適用条件→判断→作業前確認を上位化し、管理・共有系を最下部へ移動。"},{"version":"v116","date":"2026-10-03","type":"UI改善","text":"検索結果ソートを追加し、詳細ページに重要情報サマリーを新設。検索結果上部のHTML構造も整理。"},{"version":"v115","date":"2026-10-03","type":"UI改善","text":"詳細ページの情報強弱・カード階層・クイックナビ・検索結果カードを再設計。"},{"version":"v113","date":"2026-10-03","type":"一括強化","text":"残存の薄い主要テーマへFAQ・必要書類・責任分担を追加し、全49テーマの実務ガイド底上げを最終段階へ。"},{"version":"v112","date":"2026-10-03","type":"一括強化","text":"高所・足場・車両・クレーン・玉掛け・特化物・熱中症・産廃・客先ルール等10テーマを一括強化。"},{"version":"v111","date":"2026-10-03","type":"一括強化","text":"クレーン点検・研削・職長・元方・管理体制・健診・資格・届出・騒音振動の10テーマを一括強化。"},{"version":"v110","date":"2026-10-03","type":"一括強化","text":"追加10テーマへFAQ・必要書類・責任分担を一括追加し、実務ガイド密度をさらに底上げ。"},{"version":"v109","date":"2026-10-03","type":"一括強化","text":"実務ガイド0件だった10テーマにFAQ・必要書類・責任分担を一括追加。"},{"version":"v108","date":"2026-10-03","type":"品質管理","text":"全49テーマの実務ガイドカバレッジ監査を追加し、整備が薄いテーマを可視化。"},{"version":"v107","date":"2026-10-03","type":"信頼性","text":"43件の一次資料URLをドメイン・参照テーマ・利用箇所で追跡できる一次資料マスターを追加。"},{"version":"v106","date":"2026-10-03","type":"信頼性","text":"一次資料URLの構造監査（URL形式・HTTPS・ドメイン分類・重複）を管理画面へ追加。"},{"version":"v105","date":"2026-10-03","type":"初心者支援","text":"既存の適用条件・資格判定データから30秒判定フローを自動生成する機能を追加。"},{"version":"v104","date":"2026-10-03","type":"共有","text":"1テーマを会議・上司説明向けに印刷／共有できるレビューシート機能を追加。"},{"version":"v103","date":"2026-10-03","type":"全社運用","text":"品質ダッシュボードのテーマ別状況をCSV出力できる管理機能を追加。"},{"version":"v102","date":"2026-10-03","type":"検索改善","text":"検索0件時のフィードバック導線と未ヒット語報告テンプレートを追加。"},{"version":"v101","date":"2026-10-03","type":"品質管理","text":"管理者向け品質ダッシュボードを追加。高優先度・確認情報不足・現行基準未整備を横断確認可能に。"},{"version":"v100","date":"2026-10-03","type":"全社運用","text":"誤記・法改正・リンク切れ等を利用者から回収する指摘報告テンプレートを追加。"},{"version":"v99","date":"2026-10-03","type":"品質管理","text":"改正影響・更新優先度・変更履歴の管理画面を追加。"},{"version":"v118","date":"2026-10-03","type":"ガバナンス","text":"更新管理・利用ルール、版情報、確認基準日を追加。"},{"version":"v97","date":"2026-10-03","type":"実務","text":"提出先・相談先の目安を追加。"},{"version":"v96","date":"2026-10-03","type":"実務","text":"必要書類・証憑チェックを追加。"},{"version":"v95","date":"2026-10-03","type":"教育","text":"教育・講習・資格確認を追加。"}];
 const REVIEW_PRIORITY={"高":["化学物質管理・SDS・ラベル","石綿・解体改修","熱中症対策","建設業法上の技術者配置","作業環境測定","労働者死傷病報告","機械等・建設工事の届出"],"中":["産業廃棄物・マニフェスト","騒音を伴う特定建設作業","振動を伴う特定建設作業","高圧ガス設備・配管","ボイラー","第一種・第二種圧力容器","安全衛生管理体制"]};
 const REVIEW_POLICY={"high":"法改正・施行日変更・行政手続変更の影響を受けやすいため、改正情報の確認を優先。","medium":"数値・届出・検査・自治体運用等の変更可能性があるため、定期的に再確認。","normal":"恒常的な基本規定が中心。ただし法改正時は再確認が必要。"};
 const APP_GOVERNANCE={"version":"v98","reviewed":"2026-10-03","purpose":"安全法令・関連ルールを探すための実務支援ナビ","finalJudgement":"法的な最終判断は、最新の法令原文・所管行政機関・社内規程・客先ルールで確認する","updatePolicy":["法改正・省令改正・告示改正を反映した場合は確認日を更新する","数値・期限・資格条件は一次資料で確認できたものを優先して掲載する","指針・ガイドライン・客先ルールは法令上の義務と区別して表示する","不明確な情報は断定せず『要確認』として扱う"],"usageRules":["現場作業の開始可否を、このアプリだけで単独判断しない","緊急時は現場の緊急手順・保安規程・責任者指示を優先する","客先独自ルールが法令より厳しい場合は、原則としてその現場ルールを確認する","表示内容と一次資料が食い違う場合は一次資料を優先する"]};
@@ -1283,8 +1576,41 @@ function verificationStatusHtml(x){
 
 
 
+
+function compactArticleRefs(items){
+  const groups=new Map();
+  (items||[]).forEach(raw=>{
+    const t=String(raw||"").trim();
+    const m=t.match(/^(.*?)\s+(第.+)$/);
+    const law=m?m[1].trim():"";
+    const art=m?m[2].trim():t;
+    if(!groups.has(law))groups.set(law,[]);
+    groups.get(law).push(art);
+  });
+
+  return [...groups.entries()].map(([law,arts])=>{
+    // Consecutive simple article numbers -> one compact range.
+    const nums=arts.map(a=>{
+      const m=a.match(/^第(\d+)条$/);
+      return m?Number(m[1]):null;
+    });
+    let refs="";
+    if(nums.length>=2 && nums.every(v=>v!==null) && nums.every((v,i)=>i===0||v===nums[i-1]+1)){
+      refs=`第${nums[0]}条～第${nums[nums.length-1]}条`;
+    }else{
+      refs=arts.join("・");
+    }
+    return {law,refs};
+  });
+}
+function legalBasisCardHtml(x){
+  const rows=compactArticleRefs(x.articles);
+  if(!rows.length)return "";
+  return `<div class="cardbasis"><div class="cardbasislabel">主な根拠法令・条文</div>${rows.map(r=>`<div class="cardbasisrow">${r.law?`<span class="cardbasislaw">${r.law}</span>`:""}<span class="cardbasisrefs">${r.refs}</span></div>`).join("")}</div>`;
+}
+
 function render(){const d=filtered();count.textContent=`${d.length}件`;res.innerHTML="";if(!d.length){res.innerHTML='<div class="empty">該当候補がありません。別の現場ワードでも検索してください。</div>';return}d.forEach(x=>{const c=document.createElement("article");c.className="card";c.innerHTML=`<div class="badges"><span class="badge">${x.cat}</span><span class="badge legaltype">${legalType(x)}</span><span class="badge ${statusClass(x.status)}">${x.status}</span></div>
-  ${E_GOV_LAW_IDS[x.law]?`<div class="lawid">e-Gov Law ID：${E_GOV_LAW_IDS[x.law]}</div>`:""}<div class="topic">${x.title}</div><div class="law">${x.law}</div><div class="desc">${x.desc}</div><div class="verifymini">確認情報 ${verificationStatus(x).filter(v=>v[1]).length}/5</div>${featureBadgesHtml(x)}<div class="facts">${x.facts.map(f=>`<span class="fact">${f}</span>`).join("")}</div><div class="kw">${x.kw.slice(0,13).map(k=>`<span class="k">${k}</span>`).join("")}</div><div class="bottom"><div class="articlemini">関連：${x.articles.join(" / ")}</div><button class="more" onclick="openD(${DATA.indexOf(x)})">詳しく見る</button></div>`;res.appendChild(c)})}
+  ${E_GOV_LAW_IDS[x.law]?`<div class="lawid">e-Gov Law ID：${E_GOV_LAW_IDS[x.law]}</div>`:""}<div class="topic">${x.title}</div><div class="law">${x.law}</div><div class="desc">${x.desc}</div>${legalBasisCardHtml(x)}<div class="facts">${x.facts.map(f=>`<span class="fact">${f}</span>`).join("")}</div><div class="kw">${x.kw.slice(0,13).map(k=>`<span class="k">${k}</span>`).join("")}</div><div class="bottom"><div></div><button class="more" onclick="openD(${DATA.indexOf(x)})">詳しく見る</button></div>`;res.appendChild(c)})}
 function openD(i){
  const x=DATA[i];
  const url=ARTICLE_SOURCES[x.title]||(x.source?x.source[1]:"");
@@ -1428,11 +1754,25 @@ function openD(i){
  });
  const articleSourceHtml=[...articleSourceMap.values()].map(v=>`<a class="relatedsource" href="${v.url}" target="_blank" rel="noopener"><span>${v.label}</span><small>条文の一次資料 ↗</small></a>`).join("");
  const currentRule=CURRENT_RULES[x.title];
- const currentRuleHtml=currentRule?`<div class="section currentrule"><h3>最新改正・現行基準の確認</h3><div class="currentruledate">確認日：${currentRule.checked}　｜　この欄も検索対象です</div>${currentRule.items.map(v=>`<div class="currentruleitem">${v}</div>`).join("")}</div>`:"";
+ const currentRuleHtml=currentRule?`<div class="section currentrule"><h3>現行基準・改正情報</h3><div class="currentruledate">確認日：${currentRule.checked}</div>${currentRule.items.map(v=>`<div class="currentruleitem">${v}</div>`).join("")}</div>`:"";
  const purpose=PURPOSE[x.title]||`${x.desc} 対象作業・設備・物質・現場条件を確認し、法令上必要な措置・資格・点検・届出を判断します。`;
  const points=x.first.map(v=>`<div class="pointcard"><div class="pointname">${v}</div><div class="pointdesc">${POINT_HELP[v]||`${v}について、現物・記録・作業方法を確認し、法令上又は現場ルール上の要求を満たしているか確認します。`}</div></div>`).join("");
  const ms=EXACT_METRICS[x.title]||[];
- const metrics=ms.length?ms.map(m=>`<div class="metriccard"><div class="metricvalue">${m.v}</div><div class="metricmeaning">${m.m}</div></div>`).join(""):`<div class="box">このテーマの規制値・基準値・期限は、公式一次資料との照合が完了したものから掲載します。</div>`;
+ const metricLabel=(m)=>{
+   if(x.title==="グラインダー・研削といし"){
+     if(m.v==="1分間以上")return ["始業前の試運転","その日の作業開始前","基準"];
+     if(m.v==="3分間以上")return ["といし取替え時の試運転","研削といしを取り替えたとき","基準"];
+     if(m.v==="3年間")return ["特別教育記録","保存する記録","保存期間"];
+     if(String(m.v).startsWith("機械研削："))return ["機械研削用といしの特別教育","必要な教育時間","教育時間"];
+     if(String(m.v).startsWith("自由研削："))return ["自由研削用といしの特別教育","必要な教育時間","教育時間"];
+   }
+   return [m.m||"法令上の要求事項","",/保存|期限|期間/.test(String(m.m||""))?"期間":(/点検|検査/.test(String(m.m||""))?"点検・検査":(/高さ|長さ|幅|距離|濃度|速度|荷重|圧力|温度/.test(String(m.m||""))?"規制値":"要求内容"))];
+ };
+ const metrics=ms.length?ms.map(m=>{
+   const z=metricLabel(m);
+   const value=String(m.v||"").replace(/^機械研削：/,"").replace(/^自由研削：/,"");
+   return `<div class="metriccard fieldmetric"><div class="metricname">${z[0]}</div>${z[1]?`<div class="metriccontext">${z[1]}</div>`:""}<div class="metricline"><span>${z[2]}</span><b>${value}</b></div></div>`;
+ }).join(""):`<div class="box">確認済みの数値基準はありません。一次資料を確認してください。</div>`;
  const arts=ARTICLE_TEXT[x.title]||[];
  const originals=ORIGINAL_TEXT[x.title]||[];
  const articleNo=s=>{
@@ -1443,22 +1783,38 @@ function openD(i){
  const relatedArts=arts.filter(a=>!primaryNos.has(articleNo(a.n)));
  const articleKey=s=>String(s||"").replace(/[^0-9０-９一二三四五六七八九十百千の]/g,"");
  const articleId=s=>`art-${articleKey(s)}`;
- const articleHtml=relatedArts.length?relatedArts.map(a=>`<div class="articlecard" id="${articleId(a.n)}"><a class="articlehead articlejump" href="#${articleId(a.n)}">${a.n}｜${a.h}</a><div class="articlesummarytag">条文要旨（原文ではありません）</div><div class="articlebody">${a.s}</div>${sourceForArticle(a.n)?`<a class="articlelink" href="${sourceForArticle(a.n)}" target="_blank" rel="noopener">公式一次資料で本文を確認 ↗</a>`:""}</div>`).join(""):`<div class="box">主要条文と重複しない関連条文はありません。</div>`;
- const originalHtml=originals.length?originals.map(o=>`<div class="original" id="${articleId(o.n)}"><a class="originalname articlejump" href="#${articleId(o.n)}">${o.n}</a><div class="articlesummarytag">条文要旨（原文ではありません）</div><div class="originaltext">${o.t}</div>${sourceForArticle(o.n)?`<a class="articlelink" href="${sourceForArticle(o.n)}" target="_blank" rel="noopener">公式一次資料で本文を確認 ↗</a>`:""}</div>`).join(""):`<div class="box">主要条文の要旨は公式一次資料との照合が完了したテーマから順次掲載します。</div>`;
+ const articleHtml=relatedArts.length?relatedArts.map(a=>`<div class="articlecard" id="${articleId(a.n)}"><a class="articlehead articlejump" href="#${articleId(a.n)}">${a.n}｜${a.h}</a><div class="articlebody">${a.s}</div>${sourceForArticle(a.n)?`<a class="articlelink" href="${sourceForArticle(a.n)}" target="_blank" rel="noopener">公式一次資料で本文を確認 ↗</a>`:""}</div>`).join(""):`<div class="box">主要条文と重複しない関連条文はありません。</div>`;
+ const originalHtml=originals.length?originals.map(o=>`<div class="original" id="${articleId(o.n)}"><a class="originalname articlejump" href="#${articleId(o.n)}">${o.n}</a><div class="originaltext">${o.t}</div>${sourceForArticle(o.n)?`<a class="articlelink" href="${sourceForArticle(o.n)}" target="_blank" rel="noopener">公式一次資料で本文を確認 ↗</a>`:""}</div>`).join(""):`<div class="box">主要条文の要旨は公式一次資料との照合が完了したテーマから順次掲載します。</div>`;
  const kwHtml=x.kw.map(k=>`<button class="kwbtn linklike" role="link" onclick="searchKeyword('${String(k).replace(/'/g,"\\'")}')">${k}</button>`).join("");
  document.getElementById("dt").textContent=x.title;
  document.getElementById("db").innerHTML=`
   <div class="badges"><span class="badge">${x.cat}</span><span class="badge legaltype">${legalType(x)}</span><span class="badge ${statusClass(x.status)}">${x.status}</span></div>
   ${E_GOV_LAW_IDS[x.law]?`<div class="lawid">e-Gov Law ID：${E_GOV_LAW_IDS[x.law]}</div>`:""}
-  <div class="section lawtop"><h3>条文・条文番号</h3><div class="legalnotice"><b>表示文は条文の要旨です。</b> 原文そのものではありません。正式な文言は各カードの「公式一次資料で本文を確認」から確認してください。</div>${originalHtml}<div class="hiernote">※上記に表示した条文は、下の「その他の関連条文」には重複表示しません。</div></div>
-  <div class="section legalhier"><h3>法令区分</h3><div class="purpose"><b>${legalType(x)}</b>｜${x.law}<br><span class="hierex">${legalType(x)==="条例"?"自治体ごとに内容が異なるため、対象地域を確認して適用条例を特定します。":legalType(x)==="現場ルール"?"法令に加えて会社・事業所・工事現場独自のルールを確認します。":"国の法令体系上の区分です。"}</span></div></div>
-  ${currentRuleHtml}${verificationStatusView?`<div class="section"><h3>根拠・確認状況</h3>${governanceStampView}${reviewPriorityView}${verificationStatusView}</div>`:""}${themeShareToolsView?`<div class="section"><h3>会議・説明用に共有</h3>${themeShareToolsView}</div>`:""}${issueReportView?`<div class="section"><h3>誤り・改正を報告する</h3>${issueReportView}</div>`:""}${detailFeatureBadges?`<div class="section"><h3>このテーマで使える実務ガイド</h3><div class="coverageinline"><b>${coverageState[0]}</b><span>${coverageState[1].count}/${coverageState[1].total}項目</span></div>${detailFeatureBadges}</div>`:""}${beginnerFlowView?`<div class="section"><h3>まずこの順で確認</h3><div class="sourcenote">安全法令に不慣れでも、対象判定→資格・担当→作業前条件→期限・点検・記録→異常時対応の順で確認できます。</div>${beginnerFlowView}</div>`:""}${quickDecisionFlowView?`<div class="section"><h3>30秒判定フロー</h3><div class="sourcenote">既存の適用条件・資格判定データをYES/NO形式で並べた簡易判定です。最終判断は必ず詳細欄と一次資料で確認してください。</div>${quickDecisionFlowView}</div>`:""}${contactGuideHtml?`<div class="section"><h3>提出先・相談先の目安</h3><div class="sourcenote">実際の窓口名・提出方法は地域や設備区分で変わるため、所轄行政機関の最新案内で最終確認してください。</div>${contactGuideHtml}</div>`:""}${documentGuideHtml?`<div class="section"><h3>必要書類・証憑チェック</h3><div class="sourcenote">作業前・検査前・届出時に、何の書類を確認するかを実務向けに整理しています。</div>${documentGuideHtml}</div>`:""}${trainingGuideHtml?`<div class="section"><h3>教育・講習・資格の確認</h3><div class="sourcenote">時間数を断定できるものだけ具体値を表示し、それ以外は対象区分と現行規程の確認を優先します。</div>${trainingGuideHtml}</div>`:""}${questionGuideHtml?`<div class="section"><h3>よくある判断質問</h3><div class="sourcenote">現場で最初に迷いやすい質問から、必要な確認ポイントへ入れるようにしています。</div>${questionGuideHtml}</div>`:""}<div class="section"><h3>要点解説</h3><div class="purpose">${purpose}</div></div>
-  <div class="section"><h3>規制値・基準値・期限</h3><div class="metricgrid">${metrics}</div></div>
-  <div class="section"><h3>その他の関連条文</h3>${relatedArts.length?`<div class="relatedlinks">${relatedArts.map(a=>`<a href="#${articleId(a.n)}" class="relalink">${a.n}${a.h?`｜${a.h}`:""}</a>`).join("")}</div>`:""}${articleHtml}</div>
-  ${responsibilityGuideHtml?`<div class="section"><h3>誰が何を確認するか</h3><div class="sourcenote">役割ごとの担当を整理しています。実際の職務範囲は法令、社内規程、客先ルール、選任文書で最終確認してください。</div>${responsibilityGuideHtml}</div>`:""}${applicabilityGuideHtml?`<div class="section"><h3>適用条件・境界・例外チェック</h3><div class="sourcenote">「対象かどうか」を先に判定するための早見表です。非該当側でも別の法令・一般安全措置・客先ルールが残る場合があります。</div>${applicabilityGuideHtml}</div>`:""}${legalStatusGuideHtml?`<div class="section"><h3>法令・指針・現場ルールの区別</h3><div class="sourcenote">数値や手順が「法令上の義務」なのか「指針・ガイドライン」なのか「客先独自ルール」なのかを区別して表示します。</div>${legalStatusGuideHtml}</div>`:""}${recordGuideHtml?`<div class="section"><h3>記録・保存・提出管理</h3><div class="sourcenote">点検や健診を実施しただけで終わらず、何を何年残すか、誰が管理するかまで確認できます。</div>${recordGuideHtml}</div>`:""}${controlGuideHtml?`<div class="section"><h3>作業前の管理・許可・隔離チェック</h3><div class="sourcenote">法令だけでなく、現場で作業開始前に止めるべきポイントを整理しています。客先ルール・作業許可条件がある場合はそちらも確認してください。</div>${controlGuideHtml}</div>`:""}${emergencyGuideHtml?`<div class="section"><h3>異常・緊急時の初動</h3><div class="sourcenote">まず人命保護と二次災害防止を優先するための実務整理です。現場の緊急手順・保安規程・作業許可条件を優先してください。</div>${emergencyGuideHtml}</div>`:""}${periodicGuideHtml?`<div class="section"><h3>点検・検査・保存期間早見表</h3><div class="sourcenote">始業前・月次・年次・災害後などの点検タイミングをまとめています。設備区分や例外条件は一次資料で最終確認してください。</div>${periodicGuideHtml}</div>`:""}${deadlineGuideHtml?`<div class="section"><h3>期限・提出タイミング早見表</h3><div class="sourcenote">期限を見落としやすい届出・報告・保存期間をまとめています。対象性・例外・提出先は最新の一次資料で最終確認してください。</div>${deadlineGuideHtml}</div>`:""}${decisionGuideHtml?`<div class="section"><h3>選任要否・資格の判定早見表</h3><div class="sourcenote">代表的な判定条件です。最終判断は安衛令第6条と各個別規則の現行条文で確認してください。</div>${decisionGuideHtml}</div>`:""}<div class="section"><h3>現場で確認するポイント</h3><div class="pointgrid">${points}</div></div>
-  <div class="section"><h3>関連テーマ</h3><div class="relatedtopics">${relatedTopicsHtml||"なし"}</div></div><div class="section"><h3>関連する検索ワード</h3><div class="cloud">${kwHtml}</div></div>
-  <div class="section"><h3>一次資料</h3><div class="sourcenote">主資料に加え、条文名から該当法令を自動判定して公式一次資料をまとめます。</div><div class="box source">${src}</div>${articleSourceHtml?`<div class="relatedsourcehead">条文ごとの一次資料</div><div class="relatedsources">${articleSourceHtml}</div>`:""}${sourceSetHtml?`<div class="relatedsourcehead">このテーマの一次資料</div><div class="relatedsources">${sourceSetHtml}</div>`:""}${relatedSourceHtml?`<div class="relatedsourcehead">関連テーマの一次資料</div><div class="relatedsources">${relatedSourceHtml}</div>`:""}</div>
-  <div class="qualitygate">v118 詳細UI再構築：現場判断中心に情報を削って再配置し、重複表示・管理情報・FAQ・関連条文丸囲みを除去、数値カードの主従を修正、JavaScript構文を横断チェック済み</div><div class="warn">適用判断は設備仕様・作業条件・物質・人数・地域・工事内容等で変わります。数値だけで適用を断定せず、一次資料と現場条件を合わせて確認します。画面内の条文説明は検索・判断補助のための要旨であり、法令原文の代替ではありません。</div>`;
+
+  <div class="section fieldtop"><h3>法令区分</h3><div class="legalcompact"><b>${legalType(x)}</b><span>｜</span><span>${x.law}</span></div></div>
+  <div class="section fieldtop"><h3>要点解説</h3><div class="purpose">${purpose}</div></div>
+  <div class="section fieldtop"><h3>法令上の基準・義務</h3><div class="metricgrid">${metrics}</div></div>
+
+  ${applicabilityGuideHtml?`<div class="section"><h3>適用条件</h3>${applicabilityGuideHtml}</div>`:""}
+  ${quickDecisionFlowView?`<div class="section"><h3>判定</h3>${quickDecisionFlowView}</div>`:""}
+  ${trainingGuideHtml?`<div class="section"><h3>必要な資格・教育</h3>${trainingGuideHtml}</div>`:""}
+  ${controlGuideHtml?`<div class="section"><h3>作業前の確認</h3>${controlGuideHtml}</div>`:""}
+  ${documentGuideHtml?`<div class="section"><h3>作業前に確認する書類</h3>${documentGuideHtml}</div>`:""}
+  ${contactGuideHtml?`<div class="section"><h3>提出先・相談先</h3>${contactGuideHtml}</div>`:""}
+  ${emergencyGuideHtml?`<div class="section"><h3>異常・緊急時</h3>${emergencyGuideHtml}</div>`:""}
+
+  <div class="section"><h3>条文 <span class="field-inline-note">※要旨。原文は公式資料で確認</span></h3>${originalHtml}</div>
+  ${currentRuleHtml}
+  <div class="section"><h3>一次資料</h3><div class="box source">${src}</div>${articleSourceHtml?`<div class="relatedsourcehead">条文の一次資料</div><div class="relatedsources">${articleSourceHtml}</div>`:""}${sourceSetHtml?`<div class="relatedsourcehead">テーマの一次資料</div><div class="relatedsources">${sourceSetHtml}</div>`:""}</div>
+
+  ${relatedTopicsHtml?`<div class="section lowpriority"><h3>関連テーマ</h3><div class="relatedtopics">${relatedTopicsHtml}</div></div>`:""}
+  <div class="section lowpriority"><h3>検索ワード</h3><div class="cloud">${kwHtml}</div></div>
+
+  ${themeShareToolsView?`<div class="section adminbottom"><h3>会議・説明用に共有</h3>${themeShareToolsView}</div>`:""}
+  ${issueReportView?`<div class="section adminbottom"><h3>誤り・改正を報告（現時点で送付先未設定）</h3>${issueReportView}</div>`:""}
+
+  <div class="qualitygate">v122 詳細UI調整：実際に使用している各実務カードの文字サイズを統一し、後処理による再配置を廃止</div>
+  <div class="warn">適用判断は設備仕様・作業条件・物質・人数・地域・工事内容等で変わります。一次資料と現場条件を合わせて確認してください。</div>`;
  document.getElementById("drawer").classList.add("open");document.getElementById("bg").classList.add("open")
   const _resHost=document.getElementById("results");
   const _q=(document.getElementById("q")?.value||document.querySelector('input[type="search"]')?.value||"").trim();
@@ -2416,7 +2772,7 @@ function fieldDetailLayout(){
 const _enhance_v117=enhanceDetailHierarchy;
 enhanceDetailHierarchy=function(){
   _enhance_v117();
-  fieldDetailLayout();
+  /* v122: 詳細画面は生成テンプレートで順序確定。後処理による並べ替えは行わない。 */
 };
 
 function rebuildDetailForFieldUse(){
@@ -2471,11 +2827,6 @@ function rebuildDetailForFieldUse(){
   // 4. Legal classification: only the useful line; remove explanatory boilerplate.
   sections=[...root.querySelectorAll(".section")];
   const legal=sections.find(sec=>heading(sec).includes("法令区分"));
-  if(legal){
-    [...legal.querySelectorAll("*")].forEach(el=>{
-      if(el.children.length===0 && (el.textContent||"").trim()==="国の法令体系上の区分です。") el.remove();
-    });
-  }
 
   // 5. Remove old "developer-facing" qualification explanation.
   root.querySelectorAll("*").forEach(el=>{
