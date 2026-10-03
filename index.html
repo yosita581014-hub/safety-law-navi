@@ -1,5 +1,5 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>安全法令ナビ v115</title>
+<title>安全法令ナビ v118</title>
 <style>
 :root{--navy:#0c304e;--blue:#125b78;--cyan:#26829e;--bg:#f2f6f9;--text:#182530;--muted:#6d7c88;--line:#dde6ec;--green:#2f7c55;--amber:#9c6b1b;--red:#a84444}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic",Meiryo,sans-serif}
@@ -973,6 +973,77 @@ select,input[type="search"],input[type="text"]{
   .detail-side{position:static}
   .detail-hero h2{font-size:19px}
 }
+
+.toolbar{display:grid!important;grid-template-columns:auto 1fr!important;gap:12px!important;align-items:center!important}
+.toolbarhead{display:flex;align-items:baseline;gap:8px}
+.toolbarfilters{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:7px}
+.toolbarfilters select{min-width:0;width:100%;background:#fff;padding:9px 10px;font-size:9px}
+.detail-summary{background:#fff;border:1px solid var(--ui-line);border-radius:16px;padding:14px;margin:0 0 12px;box-shadow:0 7px 22px rgba(41,61,71,.06)}
+.detailsummaryhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.detailsummaryhead b{font-size:12px}
+.detailsummaryhead span{font-size:8px;border:1px solid #dbe4e8;border-radius:999px;padding:4px 7px}
+.detailsummarygrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.detailsummarygrid>div{background:#f7f9fa;border:1px solid #e3e9ec;border-radius:10px;padding:8px}
+.detailsummarygrid small{display:block;font-size:8px;color:#70828b;margin-bottom:4px}
+.detailsummarygrid strong{display:block;font-size:9px;line-height:1.5;overflow-wrap:anywhere}
+.detailsummarymetrics{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.detailsummarymetrics span{font-size:8px;font-weight:800;border:1px solid #dbe4e8;background:#fff;border-radius:999px;padding:4px 7px}
+@media(max-width:760px){
+  .toolbar{grid-template-columns:1fr!important}
+  .toolbarfilters{grid-template-columns:1fr}
+  .detailsummarygrid{grid-template-columns:1fr 1fr}
+}
+
+/* v117: field-use detail redesign */
+html,body,button,input,select,textarea{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif!important;
+}
+body{font-size:15px!important;line-height:1.72!important;color:#17252c!important}
+#detail{max-width:1050px!important;margin:0 auto!important}
+#detail .detail-hero{padding:22px!important;margin:14px 0 12px!important}
+#detail .detail-hero .eyebrow{display:none!important}
+#detail .detail-hero h2{font-size:25px!important;font-weight:800!important;letter-spacing:.01em!important}
+#detail .detail-hero .desc{font-size:14px!important;line-height:1.75!important;color:#41545e!important}
+#detail .section{padding:18px 20px!important;margin:12px 0!important}
+#detail .section h3{font-size:17px!important;font-weight:800!important;line-height:1.45!important;margin-bottom:12px!important}
+#detail .section p,#detail .section li,#detail .section div{font-size:14px;line-height:1.75}
+#detail .section small,#detail .muted,#detail .note{font-size:12px!important;line-height:1.65!important}
+#detail .section.priority{border:1px solid #cbd9df!important;border-left:6px solid #536f7c!important}
+#detail .section.priority h3{font-size:18px!important}
+#detail .detail-summary{display:none!important}
+#detail .quick-nav{margin-top:14px!important}
+#detail .quick-nav button{font-size:12px!important;padding:8px 12px!important}
+#detail .featurebadges,#detail .feature-badges{display:none!important}
+#detail .themeshare,#detail .issuebox{opacity:.86}
+@media(max-width:700px){
+  body{font-size:16px!important}
+  #detail{padding:0 8px!important}
+  #detail .detail-hero{padding:18px!important}
+  #detail .detail-hero h2{font-size:23px!important}
+  #detail .section{padding:16px!important}
+  #detail .section h3{font-size:17px!important}
+  #detail .section p,#detail .section li,#detail .section div{font-size:15px}
+}
+
+/* v118 — field-first detail page */
+#detail{max-width:980px!important}
+#detail .section{box-shadow:none!important;border:1px solid #d8e2e7!important;border-radius:12px!important}
+#detail .section h3:before{width:4px!important;height:20px!important;opacity:.55!important}
+#detail .section h3{color:#18323d!important}
+#detail .article-disclaimer,
+#detail .article-warning{display:none!important}
+#detail .field-primary{border-left:5px solid #456c7d!important}
+#detail .field-secondary{background:#fbfcfd!important}
+#detail .field-admin{margin-top:22px!important;background:#fafbfb!important}
+#detail .field-admin h3{font-size:14px!important}
+#detail .field-inline-note{font-size:11px!important;font-weight:500!important;color:#6b7e87!important;margin-left:8px}
+#detail .field-metric-card{display:grid!important;grid-template-columns:minmax(180px,1.3fr) minmax(120px,.7fr)!important;gap:8px!important;align-items:center!important}
+#detail .field-metric-card .field-metric-label{font-weight:800!important;font-size:14px!important}
+#detail .field-metric-card .field-metric-value{font-weight:900!important;font-size:18px!important;text-align:right!important}
+@media(max-width:700px){
+ #detail .field-metric-card{grid-template-columns:1fr!important}
+ #detail .field-metric-card .field-metric-value{text-align:left!important}
+}
 </style></head><body>
 <div class="auditbar">
   <span>横断監査 2026-10-03</span>
@@ -982,43 +1053,62 @@ select,input[type="search"],input[type="text"]{
 <header><div class="wrap"><div class="head"><div><h1>安全法令ナビ</h1><div class="sub">現場で使える。現場ワード・法令名・条文番号・条文本文から、規制値・資格・届出・現場ルールへ逆引き。</div></div><div class="actions"><button class="ghost" onclick="showAll()">全件表示</button><button class="ghost" onclick="window.print()">印刷</button></div></div><div class="stats"><span class="stat" id="topicStat"></span><span class="stat" id="lawStat"></span><span class="stat" id="kwStat"></span><span class="stat">公式一次資料リンク付き</span></div></div></header>
 <main><section class="searchbox"><div class="label">現場で見たもの・作業・設備・物質・資格・届出名を入力</div><div class="searchrowwrap"><div class="row"><input id="q" placeholder="例：あん→労働安全衛生法・規則 / あしば / 563条"><button class="clearSearch" id="clearSearch" type="button" aria-label="検索文字を消す">×</button><button class="primary" id="go">検索</button></div>
 <div id="suggestions" class="suggestions" hidden></div></div><div class="quick" id="quick"></div><div class="tip">検索入口は現場語。具体的な高さ・幅・荷重・濃度・期限は結果側に表示します。</div><div class="tabs"><button class="tab active" data-mode="all">すべて</button><button class="tab" data-mode="official">公式確認済み中心</button><button class="tab" data-mode="numbers">数値・期限あり</button><button class="tab" data-mode="beginner">新人向け解説あり</button></div></section>
-<div class="layout"><aside class="side"><div class="sidetitle">カテゴリ</div><div id="sideCats"></div></aside><section class="content"><div class="toolbar"><div><span class="titleh">検索結果</span><span class="cnt" id="count"></span></div><select id="typeFilter">
-<option value="">すべての区分</option>
-<option value="法律">法律</option>
-<option value="政令">政令</option>
-<option value="省令・規則">省令・規則</option>
-<option value="告示・通達・指針">告示・通達・指針</option>
-<option value="条例">条例</option>
-<option value="現場ルール">現場ルール</option>
+<div class="layout">
+<aside class="side"><div class="sidetitle">カテゴリ</div><div id="sideCats"></div></aside>
+<section class="content">
+  <div class="toolbar">
+    <div class="toolbarhead"><span class="titleh">検索結果</span><span class="cnt" id="count"></span></div>
+    <div class="toolbarfilters">
+      <select id="typeFilter">
+        <option value="">すべての区分</option>
+        <option value="法律">法律</option>
+        <option value="政令">政令</option>
+        <option value="省令・規則">省令・規則</option>
+        <option value="告示・通達・指針">告示・通達・指針</option>
+        <option value="条例">条例</option>
+        <option value="現場ルール">現場ルール</option>
+      </select>
+      <select id="lawFilter"><option value="">すべての法律・政令・規則・条例・ルール</option></select>
+      <select id="sortFilter">
+        <option value="relevance">おすすめ順</option>
+        <option value="title">テーマ名順</option>
+        <option value="law">法令名順</option>
+        <option value="verified">確認情報が多い順</option>
+      </select>
+    </div>
+  </div>
 
+  <div class="governancewrap">
+    <div class="govbtnrow">
+      <button class="governancebtn" onclick="toggleGovernance()">更新管理・利用ルール</button>
+      <button class="governancebtn" onclick="toggleChangeLog()">改正影響・変更履歴</button>
+      <button class="governancebtn" onclick="toggleAdminDashboard()">品質ダッシュボード</button>
+      <button class="governancebtn" onclick="toggleSourceAudit()">一次資料リンク監査</button>
+      <button class="governancebtn" onclick="toggleCoverageAudit()">実務ガイド網羅性</button>
+    </div>
+    <div id="governancePanel" class="governancepanel" style="display:none"></div>
+    <div id="changeLogPanel" class="governancepanel" style="display:none"></div>
+    <div id="adminDashboardPanel" class="governancepanel" style="display:none"></div>
+    <div id="sourceAuditPanel" class="governancepanel" style="display:none"></div>
+    <div id="coverageAuditPanel" class="governancepanel" style="display:none"></div>
+  </div>
 
-<div class="governancewrap">
-  <div class="govbtnrow">
-  <button class="governancebtn" onclick="toggleGovernance()">更新管理・利用ルール</button>
-  <button class="governancebtn" onclick="toggleChangeLog()">改正影響・変更履歴</button>
-  <button class="governancebtn" onclick="toggleAdminDashboard()">品質ダッシュボード</button>
-  <button class="governancebtn" onclick="toggleSourceAudit()">一次資料リンク監査</button>
-  <button class="governancebtn" onclick="toggleCoverageAudit()">実務ガイド網羅性</button>
-</div>
-  <div id="governancePanel" class="governancepanel" style="display:none"></div>
-  <div id="changeLogPanel" class="governancepanel" style="display:none"></div>
-  <div id="adminDashboardPanel" class="governancepanel" style="display:none"></div>
-  <div id="sourceAuditPanel" class="governancepanel" style="display:none"></div>
-  <div id="coverageAuditPanel" class="governancepanel" style="display:none"></div>
-</div>
-<div class="lawindexwrap">
-  <div class="reversebtns">
-  <button class="lawindexbtn" onclick="toggleLawIndex()">法令から逆引き</button>
-  <button class="lawindexbtn" onclick="toggleArticleIndex()">条文番号から逆引き</button>
-  <button class="lawindexbtn" onclick="toggleRoleIndex()">役割から逆引き</button>
-</div>
-  <div id="lawIndexPanel" class="lawindexpanel" style="display:none"></div>
-  <div id="articleIndexPanel" class="lawindexpanel" style="display:none"></div>
-  <div id="roleIndexPanel" class="lawindexpanel" style="display:none"></div>
-</div>
-</select><select id="lawFilter"><option value="">すべての法律・政令・規則・条例・ルール</option></select></div><div id="results" class="grid"></div></section></div><div class="footer">法律・政令・省令/規則・告示/通達/指針・条例・現場ルールを区分して検索できます。条例は自治体ごとに異なるため、対象地域を特定して適用条例を確認します。</div></main>
+  <div class="lawindexwrap">
+    <div class="reversebtns">
+      <button class="lawindexbtn" onclick="toggleLawIndex()">法令から逆引き</button>
+      <button class="lawindexbtn" onclick="toggleArticleIndex()">条文番号から逆引き</button>
+      <button class="lawindexbtn" onclick="toggleRoleIndex()">役割から逆引き</button>
+    </div>
+    <div id="lawIndexPanel" class="lawindexpanel" style="display:none"></div>
+    <div id="articleIndexPanel" class="lawindexpanel" style="display:none"></div>
+    <div id="roleIndexPanel" class="lawindexpanel" style="display:none"></div>
+  </div>
+
+  <div id="results" class="grid"></div></section></div><div class="footer">法律・政令・省令/規則・告示/通達/指針・条例・現場ルールを区分して検索できます。条例は自治体ごとに異なるため、対象地域を特定して適用条例を確認します。</div></main>
 <div class="drawerbg" id="bg"></div><aside class="drawer" id="drawer"><div class="dhead"><div class="dtitle" id="dt"></div><button class="close" id="close">×</button></div><div class="dbody" id="db"></div></aside>
 <script>
+const APP_VERSION="v118";
+
 
 const E_GOV_LAW_IDS={"労働安全衛生規則": "347M50002000032", "クレーン等安全規則": "347M50002000034", "酸素欠乏症等防止規則": "347M50002000042"};
 const ORIGINAL_TEXT={"酸素欠乏・閉所":[{"n":"酸素欠乏症等防止規則 第3条～第5条・第11条・第13条","t":"作業開始前測定、測定記録保存、測定器具、換気、作業主任者、特別教育を横断的に確認できます。"}],"玉掛け・吊具":[{"n":"クレーン等安全規則 第213条・第215条・第219条の2・第220条～第222条","t":"吊具の安全係数・使用禁止基準・使用荷重・作業開始前点検・玉掛け資格区分を定めています。"}],"クレーン・移動式クレーン":[{"n":"クレーン等安全規則 第66条の2・第66条の3・第68条～第70条の2","t":"移動式クレーンの作業方法・転倒防止・指揮系統、外れ止め装置、運転資格、過負荷禁止、傾斜角、定格荷重表示等を定めています。"}],"足場・作業床":[{"n":"労働安全衛生規則 第563条～第567条","t":"足場の作業床、組立て等の安全措置、作業主任者、点検等を定めています。"}],"墜落・高所作業":[{"n":"労働安全衛生規則 第518条～第522条","t":"高さ2m以上の作業における作業床、開口部防護、要求性能墜落制止用器具、取付設備、悪天候時の作業禁止を定めています。"}],"車両系建設機械":[{"n":"労働安全衛生規則 第155条～第160条","t":"作業計画、速度、転倒・転落防止、接触防止、運転位置離脱時の措置等を定めています。"}],"脚立・はしご":[{"n":"労働安全衛生規則 第526条～第528条","t":"昇降設備、移動はしご、脚立の構造要件を整理しています。移動はしごは幅30cm以上と転位防止、脚立は75度以下と開き止め等がポイントです。"}],"足場の組立て・解体":[{"n":"労働安全衛生規則 第564条～第567条","t":"足場の組立て等における立入禁止、悪天候時中止、作業主任者、点検を一連の管理として定めています。"}],"熱中症対策":[{"n":"労働安全衛生規則 第612条の2","t":"2025年6月1日施行。熱中症のおそれのある作業について、報告体制の整備、重篤化防止手順の作成、関係作業者への周知を義務付けています。"}],"化学物質管理・SDS・ラベル":[{"n":"安衛法第57条～第57条の3、安衛則第12条の5・第12条の6・第35条","t":"ラベル・SDS・リスクアセスメント・化学物質管理者・保護具着用管理責任者・雇入れ時等教育を一連で確認できます。"}],"有機溶剤・塗装":[{"n":"有機溶剤中毒予防規則 第19条・第29条～第30条の4・第32条～第34条","t":"作業主任者、特殊健康診断、個人票保存、医師意見、緊急診断、呼吸用保護具まで一連で確認できます。"}],"特定化学物質":[{"n":"特化則第27条・第28条・第37条・第39条～第40条の2・第43条～第45条","t":"作業主任者、設備点検、休憩室、特殊健康診断、健康診断個人票保存、医師意見、保護具まで一連で確認できます。"}],"溶接・溶断・火気作業":[{"n":"労働安全衛生規則 第279条・第286条・第288条・第289条・第291条","t":"火気禁止、換気不十分場所での溶接、立入禁止、消火設備、残火処理を一連で確認できます。現場独自の火気許可票・火気監視人等は法令本文とは別の現場ルールとして確認します。"}],"保護具":[{"n":"労働安全衛生規則 第593条～第597条","t":"呼吸用・皮膚障害防止・騒音障害防止の保護具、必要数、清潔保持、労働者の使用義務を定めています。"}],"フォークリフト・構内運搬":[{"n":"労働安全衛生規則 第151条の3・第151条の5・第151条の7・第151条の9・第151条の11・第151条の21～第151条の25","t":"フォークリフト等の作業計画、速度、接触防止、立入禁止、運転位置離脱時措置、年次・月次自主検査、検査記録、特定自主検査、作業開始前点検を定めています。"}],"クレーン検査・点検":[{"n":"クレーン等安全規則 第34条～第38条・第77条～第79条","t":"クレーン・移動式クレーンの年次・月次自主検査、作業開始前点検、暴風後等の点検、記録等を定めています。"}],"粉じん・研磨・切断":[{"n":"粉じん障害防止規則 第26条・第26条の2・第27条","t":"作業環境測定・評価と、対象粉じん作業での呼吸用保護具、特定作業での送気マスク・空気呼吸器、請負人への周知を整理しています。"}],"鉛・鉛作業":[{"n":"鉛中毒予防規則 第33条～第35条","t":"鉛作業主任者の選任・職務、請負人への周知、換気設備等の定期自主検査を定めています。"}],"ボイラー":[{"n":"ボイラー及び圧力容器安全規則 第3条・第3条の2・第25条・第31条・第32条","t":"製造許可、2026年追加の設計審査、取扱作業主任者の職務、吹出し、月次自主検査まで整理しています。"}],"第一種・第二種圧力容器":[{"n":"ボイラー及び圧力容器安全規則 第67条・第86条～第89条","t":"第一種圧力容器の月次自主検査、第二種圧力容器の安全弁・圧力計・年次自主検査・記録保存・異常時補修を整理しています。"}],"掘削・地山・土止め":[{"n":"労働安全衛生規則 第355条・第358条～第361条","t":"掘削前調査、作業開始前等の点検、作業主任者の選任・職務、地山崩壊等の防止措置を定めています。"}],"型枠支保工":[{"n":"労働安全衛生規則 第240条・第244条～第247条","t":"型枠支保工の組立図、コンクリート打設前点検、組立て・解体時の措置、作業主任者の選任・職務を定めています。"}],"労働者死傷病報告":[{"n":"安衛則第97条・令和7年1月1日施行改正","t":"死亡・休業災害の報告義務に加え、2025年1月1日から原則電子申請となっています。電子申請困難時は経過措置として書面提出も可能です。"}],"タンク・槽内作業":[{"n":"酸素欠乏症等防止規則＋有機溶剤中毒予防規則","t":"タンク・槽内作業は『閉所だから一律同じ』ではなく、酸欠危険場所該当性、有機溶剤業務該当性などを分けて判定する必要があります。"}],"停電・活線・感電防止":[{"n":"労働安全衛生規則 第339条・第341条・第342条・第350条・第351条・第353条","t":"停電作業、活線・近接作業、作業指揮者、絶縁用保護具等の定期自主検査、囲い等の点検を一連で確認できます。"}],"産業廃棄物・マニフェスト":[{"n":"廃棄物処理法 第12条の3・同施行規則 第8条の20、第8条の21等","t":"マニフェストの交付、記載、返送確認、未返送時の措置、保存、年度報告を一連で確認できます。"}],"プレス・シャー・回転機械":[{"n":"安衛法施行令 第6条第7号・安衛則 第131条～第136条","t":"動力プレス5台以上を有する事業場で行う対象作業ではプレス機械作業主任者を選任します。危険限界への進入防止、安全ブロック、金型調整、制御機能保持、作業主任者、始業前点検まで確認します。"}],"特定元方事業者の安全管理体制":[{"n":"安衛法第29条・第29条の2・第30条、安衛則第637条・第638条・第638条の2・第664条","t":"元方指導、混在作業調整、毎作業日の巡視、教育援助、建設業での工程・設備配置計画、作業開始後の所轄署報告まで一連で確認できます。"}],"作業環境測定":[{"n":"安衛法第65条・第65条の3、作業環境測定法第3条・第4条、同法施行令第1条、同法施行規則第3条の4等","t":"2026年改正後は、従来の作業場単位の測定だけでなく、一定の個人ばく露測定や改善措置評価の測定についても、指定作業場・測定実施者の要件を確認する必要があります。"}],"健康診断・特殊健康診断":[{"n":"安衛則第43条～第45条・第51条・第51条の2、有機則第29条～第30条の2、特化則第39条～第40条の2","t":"健診の実施時期だけでなく、個人票保存、医師意見、結果通知まで一連で確認する構成です。一般健診、有機溶剤健診、特定化学物質健診で保存期間が異なる場合があるため区別します。"}],"リスクアセスメント・KY":[{"n":"安衛法第28条の2・第57条の3、安衛則第24条の11","t":"一般リスクアセスメントの実施時期と、化学物質リスクアセスメントを整理しています。KYは法令上の固有手続ではなく、現場の危険予知活動として別表示します。"}],"重量物・人力運搬":[{"n":"厚生労働省『職場における腰痛予防対策指針』","t":"重量物取扱いにおける自動化・省力化、人力取扱重量の目安、複数人作業、姿勢・作業方法等を示す行政指針です。法律上の一律な重量上限ではありません。"}],"有機溶剤の代表物質":[{"n":"有機溶剤中毒予防規則 第1条・別表","t":"有機溶剤等の定義・区分と、健康診断における代表物質別検査項目を定めています。"}],"騒音・振動作業":[{"n":"厚生労働省 騒音障害防止ガイドライン・振動障害予防対策指針","t":"騒音の85/90dB管理区分、測定・記録、6月ごとの健康診断、騒音レベルとばく露時間、振動A(8)の対策値・限界値を整理しています。"}],"建設業法上の技術者配置":[{"n":"建設業法 第26条・建設業法施行令 第2条、第27条","t":"主任技術者・監理技術者の配置、特定建設業許可が関係する下請代金額、専任を要する工事の請負代金額を整理しています。金額は2025年2月1日改正後の現行基準です。"}],"客先・プラント独自ルール":[{"n":"注意","t":"客先・プラント独自ルールは法令本文ではありません。必ず客先仕様書、安全衛生要領、入構要領、作業許可手順等の最新版を現場ごとに確認します。"}],"危険物施設の工事":[{"n":"消防法 第10条・第11条・第11条の4","t":"『設備をいじる変更』は許可、『品名・数量等だけの変更』は届出、という基本的な分岐を表示しています。個別の軽微変更扱い等は所轄消防へ確認が必要です。"}],"グラインダー・研削といし":[{"n":"安衛法第59条第3項、安衛則第36条第1号・第38条・第118条・第119条、安全衛生特別教育規程第1条・第2条","t":"研削といしの取替え等の特別教育、試運転、最高使用周速度、教育記録保存等を定めています。"}],"作業主任者":[{"n":"安衛法第14条・安衛令第6条・安衛則第16条、第17条＋各個別規則","t":"まず安衛令第6条で対象作業かを判定し、次に各個別規則で資格と職務を確認し、最後に氏名・職務の周知と複数選任時の分担まで確認します。"}],"機械等・建設工事の届出":[{"n":"安衛法第88条・安衛則第85条・別表第7・関連通達","t":"『設備名だけで判断しない』ことを明示し、能力・規模・対象物質等の条件から計画届の要否を判断する構成にしています。"}],"石綿・解体改修":[{"n":"石綿障害予防規則 第3条・第4条・第4条の2等","t":"事前調査、作業計画、報告対象規模、記録保存、掲示、2026年施行の工作物調査者資格要件まで整理しています。"}],"職長・安全衛生責任者教育":[{"n":"安衛法第60条・安衛則第40条、安衛法第16条","t":"職長教育は合計12時間以上で、2時間＋2.5時間＋4時間＋1.5時間＋2時間の5区分です。安全衛生責任者は特定元方事業者の統括管理下で関係請負人側の連絡・調整を担います。"}],"安全衛生管理体制":[{"n":"安衛法第10条～第13条・第17条～第19条、安衛令第2条～第5条・第8条・第9条、安衛則関係条文","t":"安全衛生管理体制は『業種×常時使用労働者数』で判定します。50人、100人、300人、500人、1,000人、3,000人など複数の境界があるため、人数だけでなく業種と有害業務の有無を併せて確認します。"}],"車両系建設機械の積卸し・移送":[{"n":"労働安全衛生規則 第161条～第163条","t":"車両系建設機械の積卸し時の場所・道板等、搭乗制限、安定度・最大使用荷重の遵守を定めています。"}],"自家用電気工作物":[{"n":"電気事業法 第42条～第44条","t":"自家用電気工作物について、保安規程、主任技術者の選任、主任技術者免状の基本構造を確認できます。"}],"高圧ガス設備・配管":[{"n":"一般高圧ガス保安規則 第6条等・同規則の例示基準","t":"耐圧・気密・強度の基本要件を整理しています。第二種特定設備、特定設備、ガス種や設備区分等による例外があるため、数値だけで一律判断しない構成です。"}],"騒音を伴う特定建設作業":[{"n":"騒音規制法 第14条・同施行令別表第二・環境大臣告示の規制基準","t":"届出義務だけでなく、敷地境界85dB、夜間時間帯、1日作業時間、連続作業日数、休日作業の規制基準まで確認できます。"}],"振動を伴う特定建設作業":[{"n":"振動規制法 第14条・同施行令別表第二・同施行規則の規制基準","t":"届出義務に加え、敷地境界75dB、夜間時間帯、1日作業時間、連続作業日数、休日作業の規制基準まで整理しています。"}],"免許・技能講習・特別教育":[{"n":"安衛法第61条・安衛令第20条・安衛則第36条・クレーン等安全規則等","t":"資格区分は『機械名だけ』ではなく、最大荷重、機体重量、つり上げ荷重などの境界値で判定します。道路走行など別法令の資格要件は別途確認します。"}]};
@@ -1036,7 +1126,7 @@ const EXPORT_POLICY={"purpose":"全社展開時のレビュー会議・役員説
 const SEARCH_FEEDBACK_POLICY={"purpose":"検索しても該当しなかった語を、その場で報告テンプレート化して検索辞書改善につなげる","note":"端末内だけで動作し、外部送信は行わない。報告は利用者がコピーして所定の窓口へ送付する運用を想定。"};
 const ADMIN_DASHBOARD={"purpose":"全49テーマの保守状況を管理者が横断確認するための品質ダッシュボード","checks":["更新確認優先度","確認情報5項目","現行基準欄の有無","一次資料セットの有無","適用判定の有無"]};
 const REPORT_POLICY={"purpose":"全社展開時に、誤記・法改正・リンク切れ・現場ルール差異を利用者から回収するための報告テンプレート","categories":["法令・条文の誤り","数値・期限の誤り","法改正・施行日の更新","一次資料リンク切れ","現場・客先ルールとの差異","検索で見つからない","その他"],"required":["対象テーマ","指摘区分","現在の表示内容","正しいと思われる内容","根拠URL・文書名","確認日"]};
-const CHANGELOG=[{"version":"v115","date":"2026-10-03","type":"UI改善","text":"詳細ページの情報強弱・カード階層・クイックナビ・検索結果カードを再設計。"},{"version":"v113","date":"2026-10-03","type":"一括強化","text":"残存の薄い主要テーマへFAQ・必要書類・責任分担を追加し、全49テーマの実務ガイド底上げを最終段階へ。"},{"version":"v112","date":"2026-10-03","type":"一括強化","text":"高所・足場・車両・クレーン・玉掛け・特化物・熱中症・産廃・客先ルール等10テーマを一括強化。"},{"version":"v111","date":"2026-10-03","type":"一括強化","text":"クレーン点検・研削・職長・元方・管理体制・健診・資格・届出・騒音振動の10テーマを一括強化。"},{"version":"v110","date":"2026-10-03","type":"一括強化","text":"追加10テーマへFAQ・必要書類・責任分担を一括追加し、実務ガイド密度をさらに底上げ。"},{"version":"v109","date":"2026-10-03","type":"一括強化","text":"実務ガイド0件だった10テーマにFAQ・必要書類・責任分担を一括追加。"},{"version":"v108","date":"2026-10-03","type":"品質管理","text":"全49テーマの実務ガイドカバレッジ監査を追加し、整備が薄いテーマを可視化。"},{"version":"v107","date":"2026-10-03","type":"信頼性","text":"43件の一次資料URLをドメイン・参照テーマ・利用箇所で追跡できる一次資料マスターを追加。"},{"version":"v106","date":"2026-10-03","type":"信頼性","text":"一次資料URLの構造監査（URL形式・HTTPS・ドメイン分類・重複）を管理画面へ追加。"},{"version":"v105","date":"2026-10-03","type":"初心者支援","text":"既存の適用条件・資格判定データから30秒判定フローを自動生成する機能を追加。"},{"version":"v104","date":"2026-10-03","type":"共有","text":"1テーマを会議・上司説明向けに印刷／共有できるレビューシート機能を追加。"},{"version":"v103","date":"2026-10-03","type":"全社運用","text":"品質ダッシュボードのテーマ別状況をCSV出力できる管理機能を追加。"},{"version":"v102","date":"2026-10-03","type":"検索改善","text":"検索0件時のフィードバック導線と未ヒット語報告テンプレートを追加。"},{"version":"v101","date":"2026-10-03","type":"品質管理","text":"管理者向け品質ダッシュボードを追加。高優先度・確認情報不足・現行基準未整備を横断確認可能に。"},{"version":"v100","date":"2026-10-03","type":"全社運用","text":"誤記・法改正・リンク切れ等を利用者から回収する指摘報告テンプレートを追加。"},{"version":"v99","date":"2026-10-03","type":"品質管理","text":"改正影響・更新優先度・変更履歴の管理画面を追加。"},{"version":"v98","date":"2026-10-03","type":"ガバナンス","text":"更新管理・利用ルール、版情報、確認基準日を追加。"},{"version":"v97","date":"2026-10-03","type":"実務","text":"提出先・相談先の目安を追加。"},{"version":"v96","date":"2026-10-03","type":"実務","text":"必要書類・証憑チェックを追加。"},{"version":"v95","date":"2026-10-03","type":"教育","text":"教育・講習・資格確認を追加。"}];
+const CHANGELOG=[{"version":"v118","date":"2026-10-03","type":"詳細UI再構築","text":"詳細ページを現場判断中心に削って再構築。重複セクション・管理情報・FAQ・関連条文丸囲みを除去し、数値カードの主従を修正。"},{"version":"v117","date":"2026-10-03","type":"詳細UI再設計","text":"詳細ページを実務優先順へ全面再配置。法令区分→要点→数値→適用条件→判断→作業前確認を上位化し、管理・共有系を最下部へ移動。"},{"version":"v116","date":"2026-10-03","type":"UI改善","text":"検索結果ソートを追加し、詳細ページに重要情報サマリーを新設。検索結果上部のHTML構造も整理。"},{"version":"v115","date":"2026-10-03","type":"UI改善","text":"詳細ページの情報強弱・カード階層・クイックナビ・検索結果カードを再設計。"},{"version":"v113","date":"2026-10-03","type":"一括強化","text":"残存の薄い主要テーマへFAQ・必要書類・責任分担を追加し、全49テーマの実務ガイド底上げを最終段階へ。"},{"version":"v112","date":"2026-10-03","type":"一括強化","text":"高所・足場・車両・クレーン・玉掛け・特化物・熱中症・産廃・客先ルール等10テーマを一括強化。"},{"version":"v111","date":"2026-10-03","type":"一括強化","text":"クレーン点検・研削・職長・元方・管理体制・健診・資格・届出・騒音振動の10テーマを一括強化。"},{"version":"v110","date":"2026-10-03","type":"一括強化","text":"追加10テーマへFAQ・必要書類・責任分担を一括追加し、実務ガイド密度をさらに底上げ。"},{"version":"v109","date":"2026-10-03","type":"一括強化","text":"実務ガイド0件だった10テーマにFAQ・必要書類・責任分担を一括追加。"},{"version":"v108","date":"2026-10-03","type":"品質管理","text":"全49テーマの実務ガイドカバレッジ監査を追加し、整備が薄いテーマを可視化。"},{"version":"v107","date":"2026-10-03","type":"信頼性","text":"43件の一次資料URLをドメイン・参照テーマ・利用箇所で追跡できる一次資料マスターを追加。"},{"version":"v106","date":"2026-10-03","type":"信頼性","text":"一次資料URLの構造監査（URL形式・HTTPS・ドメイン分類・重複）を管理画面へ追加。"},{"version":"v105","date":"2026-10-03","type":"初心者支援","text":"既存の適用条件・資格判定データから30秒判定フローを自動生成する機能を追加。"},{"version":"v104","date":"2026-10-03","type":"共有","text":"1テーマを会議・上司説明向けに印刷／共有できるレビューシート機能を追加。"},{"version":"v103","date":"2026-10-03","type":"全社運用","text":"品質ダッシュボードのテーマ別状況をCSV出力できる管理機能を追加。"},{"version":"v102","date":"2026-10-03","type":"検索改善","text":"検索0件時のフィードバック導線と未ヒット語報告テンプレートを追加。"},{"version":"v101","date":"2026-10-03","type":"品質管理","text":"管理者向け品質ダッシュボードを追加。高優先度・確認情報不足・現行基準未整備を横断確認可能に。"},{"version":"v100","date":"2026-10-03","type":"全社運用","text":"誤記・法改正・リンク切れ等を利用者から回収する指摘報告テンプレートを追加。"},{"version":"v99","date":"2026-10-03","type":"品質管理","text":"改正影響・更新優先度・変更履歴の管理画面を追加。"},{"version":"v118","date":"2026-10-03","type":"ガバナンス","text":"更新管理・利用ルール、版情報、確認基準日を追加。"},{"version":"v97","date":"2026-10-03","type":"実務","text":"提出先・相談先の目安を追加。"},{"version":"v96","date":"2026-10-03","type":"実務","text":"必要書類・証憑チェックを追加。"},{"version":"v95","date":"2026-10-03","type":"教育","text":"教育・講習・資格確認を追加。"}];
 const REVIEW_PRIORITY={"高":["化学物質管理・SDS・ラベル","石綿・解体改修","熱中症対策","建設業法上の技術者配置","作業環境測定","労働者死傷病報告","機械等・建設工事の届出"],"中":["産業廃棄物・マニフェスト","騒音を伴う特定建設作業","振動を伴う特定建設作業","高圧ガス設備・配管","ボイラー","第一種・第二種圧力容器","安全衛生管理体制"]};
 const REVIEW_POLICY={"high":"法改正・施行日変更・行政手続変更の影響を受けやすいため、改正情報の確認を優先。","medium":"数値・届出・検査・自治体運用等の変更可能性があるため、定期的に再確認。","normal":"恒常的な基本規定が中心。ただし法改正時は再確認が必要。"};
 const APP_GOVERNANCE={"version":"v98","reviewed":"2026-10-03","purpose":"安全法令・関連ルールを探すための実務支援ナビ","finalJudgement":"法的な最終判断は、最新の法令原文・所管行政機関・社内規程・客先ルールで確認する","updatePolicy":["法改正・省令改正・告示改正を反映した場合は確認日を更新する","数値・期限・資格条件は一次資料で確認できたものを優先して掲載する","指針・ガイドライン・客先ルールは法令上の義務と区別して表示する","不明確な情報は断定せず『要確認』として扱う"],"usageRules":["現場作業の開始可否を、このアプリだけで単独判断しない","緊急時は現場の緊急手順・保安規程・責任者指示を優先する","客先独自ルールが法令より厳しい場合は、原則としてその現場ルールを確認する","表示内容と一次資料が食い違う場合は一次資料を優先する"]};
@@ -1086,7 +1176,15 @@ function expandedSearchTerms(raw){
   SEARCH_ALIASES.forEach(a=>{const aa=normKana(a.a);if(aa.startsWith(t)||aa.includes(t))vals.push(norm(a.value||a.label))});
   return [...new Set(vals.filter(Boolean))];
 }
-function filtered(){const terms=expandedSearchTerms(q.value),law=lawFilter.value,type=typeFilter.value;return DATA.filter(x=>(!currentCat||x.cat===currentCat)&&(!type||legalType(x)===type)&&(!law||x.law===law)&&passesMode(x)&&(!terms.length||terms.some(t=>[x.title,x.law,x.cat,legalType(x),x.desc,...x.kw,...x.facts,...x.articles,...x.first,...searchableArticleText(x)].some(v=>norm(v).includes(t)))))}
+function filtered(){
+  const terms=expandedSearchTerms(q.value),law=lawFilter.value,type=typeFilter.value;
+  const out=DATA.filter(x=>(!currentCat||x.cat===currentCat)&&(!type||legalType(x)===type)&&(!law||x.law===law)&&passesMode(x)&&(!terms.length||terms.some(t=>[x.title,x.law,x.cat,legalType(x),x.desc,...x.kw,...x.facts,...x.articles,...x.first,...searchableArticleText(x)].some(v=>norm(v).includes(t)))));
+  const sort=document.getElementById("sortFilter")?.value||"relevance";
+  if(sort==="title") out.sort((a,b)=>a.title.localeCompare(b.title,"ja"));
+  else if(sort==="law") out.sort((a,b)=>(a.law||"").localeCompare(b.law||"","ja")||a.title.localeCompare(b.title,"ja"));
+  else if(sort==="verified") out.sort((a,b)=>verificationStatus(b).filter(v=>v[1]).length-verificationStatus(a).filter(v=>v[1]).length||a.title.localeCompare(b.title,"ja"));
+  return out;
+}
 
 const LEGAL_TYPE_MAP={"労働安全衛生法":"法律","消防法":"法律","廃棄物の処理及び清掃に関する法律":"法律","高圧ガス保安法":"法律","労働安全衛生法施行令":"政令","労働安全衛生規則":"省令・規則","クレーン等安全規則":"省令・規則","酸素欠乏症等防止規則":"省令・規則","有機溶剤中毒予防規則":"省令・規則","特定化学物質障害予防規則":"省令・規則","石綿障害予防規則":"省令・規則","粉じん障害防止規則":"省令・規則","ボイラー及び圧力容器安全規則":"省令・規則","廃棄物処理法":"法律","建設業法":"法律","騒音規制法":"法律","振動規制法":"法律","電気事業法":"法律","作業環境測定法":"法律","じん肺法":"法律","大気汚染防止法":"法律","一般高圧ガス保安規則":"省令・規則","鉛中毒予防規則":"省令・規則","安全衛生特別教育規程":"告示・通達・指針"};
 function legalType(x){
@@ -1360,7 +1458,7 @@ function openD(i){
   ${responsibilityGuideHtml?`<div class="section"><h3>誰が何を確認するか</h3><div class="sourcenote">役割ごとの担当を整理しています。実際の職務範囲は法令、社内規程、客先ルール、選任文書で最終確認してください。</div>${responsibilityGuideHtml}</div>`:""}${applicabilityGuideHtml?`<div class="section"><h3>適用条件・境界・例外チェック</h3><div class="sourcenote">「対象かどうか」を先に判定するための早見表です。非該当側でも別の法令・一般安全措置・客先ルールが残る場合があります。</div>${applicabilityGuideHtml}</div>`:""}${legalStatusGuideHtml?`<div class="section"><h3>法令・指針・現場ルールの区別</h3><div class="sourcenote">数値や手順が「法令上の義務」なのか「指針・ガイドライン」なのか「客先独自ルール」なのかを区別して表示します。</div>${legalStatusGuideHtml}</div>`:""}${recordGuideHtml?`<div class="section"><h3>記録・保存・提出管理</h3><div class="sourcenote">点検や健診を実施しただけで終わらず、何を何年残すか、誰が管理するかまで確認できます。</div>${recordGuideHtml}</div>`:""}${controlGuideHtml?`<div class="section"><h3>作業前の管理・許可・隔離チェック</h3><div class="sourcenote">法令だけでなく、現場で作業開始前に止めるべきポイントを整理しています。客先ルール・作業許可条件がある場合はそちらも確認してください。</div>${controlGuideHtml}</div>`:""}${emergencyGuideHtml?`<div class="section"><h3>異常・緊急時の初動</h3><div class="sourcenote">まず人命保護と二次災害防止を優先するための実務整理です。現場の緊急手順・保安規程・作業許可条件を優先してください。</div>${emergencyGuideHtml}</div>`:""}${periodicGuideHtml?`<div class="section"><h3>点検・検査・保存期間早見表</h3><div class="sourcenote">始業前・月次・年次・災害後などの点検タイミングをまとめています。設備区分や例外条件は一次資料で最終確認してください。</div>${periodicGuideHtml}</div>`:""}${deadlineGuideHtml?`<div class="section"><h3>期限・提出タイミング早見表</h3><div class="sourcenote">期限を見落としやすい届出・報告・保存期間をまとめています。対象性・例外・提出先は最新の一次資料で最終確認してください。</div>${deadlineGuideHtml}</div>`:""}${decisionGuideHtml?`<div class="section"><h3>選任要否・資格の判定早見表</h3><div class="sourcenote">代表的な判定条件です。最終判断は安衛令第6条と各個別規則の現行条文で確認してください。</div>${decisionGuideHtml}</div>`:""}<div class="section"><h3>現場で確認するポイント</h3><div class="pointgrid">${points}</div></div>
   <div class="section"><h3>関連テーマ</h3><div class="relatedtopics">${relatedTopicsHtml||"なし"}</div></div><div class="section"><h3>関連する検索ワード</h3><div class="cloud">${kwHtml}</div></div>
   <div class="section"><h3>一次資料</h3><div class="sourcenote">主資料に加え、条文名から該当法令を自動判定して公式一次資料をまとめます。</div><div class="box source">${src}</div>${articleSourceHtml?`<div class="relatedsourcehead">条文ごとの一次資料</div><div class="relatedsources">${articleSourceHtml}</div>`:""}${sourceSetHtml?`<div class="relatedsourcehead">このテーマの一次資料</div><div class="relatedsources">${sourceSetHtml}</div>`:""}${relatedSourceHtml?`<div class="relatedsourcehead">関連テーマの一次資料</div><div class="relatedsources">${relatedSourceHtml}</div>`:""}</div>
-  <div class="qualitygate">v115 UI改善：詳細ページの情報強弱・カード階層・クイックナビ・検索結果カードを再設計し、情報量は維持したまま読みやすさを大幅改善、JavaScript構文を横断チェック済み</div><div class="warn">適用判断は設備仕様・作業条件・物質・人数・地域・工事内容等で変わります。数値だけで適用を断定せず、一次資料と現場条件を合わせて確認します。画面内の条文説明は検索・判断補助のための要旨であり、法令原文の代替ではありません。</div>`;
+  <div class="qualitygate">v118 詳細UI再構築：現場判断中心に情報を削って再配置し、重複表示・管理情報・FAQ・関連条文丸囲みを除去、数値カードの主従を修正、JavaScript構文を横断チェック済み</div><div class="warn">適用判断は設備仕様・作業条件・物質・人数・地域・工事内容等で変わります。数値だけで適用を断定せず、一次資料と現場条件を合わせて確認します。画面内の条文説明は検索・判断補助のための要旨であり、法令原文の代替ではありません。</div>`;
  document.getElementById("drawer").classList.add("open");document.getElementById("bg").classList.add("open")
   const _resHost=document.getElementById("results");
   const _q=(document.getElementById("q")?.value||document.querySelector('input[type="search"]')?.value||"").trim();
@@ -1575,7 +1673,7 @@ q.addEventListener("input",showSuggestions);
 q.addEventListener("focus",showSuggestions);
 q.addEventListener("keydown",e=>{if(e.key==="Enter"){hideSuggestions();globalSearch();q.blur()}});
 document.addEventListener("click",e=>{if(!e.target.closest(".searchbox")&&!e.target.closest("#suggestions"))hideSuggestions()});
-typeFilter.onchange=()=>{rebuildLawFilter();render()};lawFilter.onchange=render;document.getElementById("close").onclick=closeD;document.getElementById("bg").onclick=closeD;rebuildLawFilter();drawCats();render();
+typeFilter.onchange=()=>{rebuildLawFilter();render()};lawFilter.onchange=render;document.getElementById("sortFilter").onchange=render;document.getElementById("close").onclick=closeD;document.getElementById("bg").onclick=closeD;rebuildLawFilter();drawCats();render();
 
 function toggleLawIndex(){
   const p=document.getElementById("lawIndexPanel");
@@ -2182,4 +2280,279 @@ if(_openD_v115){
     return r;
   }
 }
+
+function addDetailSummary(){
+  const root=document.querySelector("#detail");
+  if(!root || root.querySelector(".detail-summary"))return;
+  const title=(root.querySelector(".detail-hero h2")||root.querySelector("h2"))?.textContent?.trim();
+  const x=DATA.find(v=>v.title===title);
+  if(!x)return;
+  const metrics=(EXACT_METRICS[x.title]||[]).slice(0,4);
+  const verification=verificationStatus(x).filter(v=>v[1]).length;
+  const box=document.createElement("div");
+  box.className="detail-summary";
+  box.innerHTML=`
+    <div class="detailsummaryhead"><b>重要情報サマリー</b><span>確認情報 ${verification}/5</span></div>
+    <div class="detailsummarygrid">
+      <div><small>主な法令</small><strong>${x.law||"—"}</strong></div>
+      <div><small>主要条文</small><strong>${(x.articles||[]).slice(0,3).join(" / ")||"—"}</strong></div>
+      <div><small>法令区分</small><strong>${legalType(x)}</strong></div>
+      <div><small>確認状態</small><strong>${x.status||"—"}</strong></div>
+    </div>
+    ${metrics.length?`<div class="detailsummarymetrics">${metrics.map(v=>`<span>${typeof v==="string"?v:(v.label&&v.value?`${v.label}：${v.value}`:(v.text||v.note||Object.values(v).join(" ")))}</span>`).join("")}</div>`:""}
+  `;
+  const hero=root.querySelector(".detail-hero");
+  if(hero)hero.insertAdjacentElement("afterend",box);
+  else root.insertBefore(box,root.firstChild);
+}
+const _enhanceDetailHierarchy_v116=enhanceDetailHierarchy;
+enhanceDetailHierarchy=function(){
+  _enhanceDetailHierarchy_v116();
+  addDetailSummary();
+};
+
+function fieldDetailLayout(){
+  const root=document.querySelector("#detail");
+  if(!root)return;
+
+  const sections=[...root.querySelectorAll(".section")];
+  const txt=sec=>(sec.querySelector("h3")?.textContent||"").trim();
+  const find=(...words)=>sections.find(sec=>words.some(w=>txt(sec).includes(w)));
+
+  // Rename titles to plain field language.
+  const renames=[
+    [["規制値・基準値・期限"],"重要な数値・基準"],
+    [["30秒判定フロー"],"判定フロー"],
+    [["よくある判断質問"],"実務判断・具体例"],
+    [["必要書類・証憑チェック"],"作業前・提出時に確認する書類"],
+    [["適用条件・境界・例外チェック"],"対象になる条件・ならない条件"],
+    [["現場で確認するポイント"],"作業前の重要確認"],
+    [["根拠・確認状況"],"根拠・更新確認"],
+    [["会議・説明用に共有"],"共有・印刷"],
+    [["誤り・改正を報告"],"誤り・改正の報告 ※送付先未設定"]
+  ];
+  sections.forEach(sec=>{
+    const h=sec.querySelector("h3"); if(!h)return;
+    renames.forEach(([keys,label])=>{if(keys.some(k=>h.textContent.includes(k)))h.textContent=label});
+  });
+
+  // Remove UI-only/noisy sections from detail view.
+  sections.forEach(sec=>{
+    const h=txt(sec);
+    if(h.includes("このテーマで使える実務ガイド") ||
+       h.includes("誰が何を確認するか") ||
+       h.includes("誰が何をするのか") ||
+       h.includes("その他関連条文")){
+      sec.remove();
+    }
+  });
+
+  // Merge "field points" into the practical pre-work block when both exist.
+  const live=[...root.querySelectorAll(".section")];
+  const get=(...words)=>live.find(sec=>words.some(w=>(sec.querySelector("h3")?.textContent||"").includes(w)));
+  const field=get("作業前の重要確認","現場で確認するポイント");
+  const control=get("作業前の管理・許可・隔離チェック");
+  if(field && control && field!==control){
+    const body=[...field.children].filter(n=>n.tagName!=="H3").map(n=>n.outerHTML).join("");
+    if(body) control.insertAdjacentHTML("beforeend",`<div class="merged-fieldpoints"><b>現場確認</b>${body}</div>`);
+    field.remove();
+  }
+
+  // Legal classification must be first, then practical meaning.
+  const current=[...root.querySelectorAll(".section")];
+  const label=sec=>(sec.querySelector("h3")?.textContent||"").trim();
+  const rank=sec=>{
+    const h=label(sec);
+    if(h.includes("法令区分")) return 10;
+    if(h.includes("要点解説")) return 20;
+    if(h.includes("重要な数値・基準")||h.includes("規制値")) return 30;
+    if(h.includes("対象になる条件")||h.includes("適用条件")) return 40;
+    if(h.includes("判定フロー")||h.includes("まずこの順で確認")) return 50;
+    if(h.includes("実務判断・具体例")||h.includes("よくある判断質問")) return 60;
+    if(h.includes("作業前の管理")||h.includes("作業前の重要確認")) return 70;
+    if(h.includes("教育・講習・資格")) return 80;
+    if(h.includes("作業前・提出時に確認する書類")||h.includes("必要書類")) return 90;
+    if(h.includes("提出先・相談先")) return 100;
+    if(h.includes("点検")||h.includes("期限")||h.includes("記録・保存")) return 110;
+    if(h.includes("異常・緊急時")) return 120;
+    if(h.includes("条文要旨")||h.includes("条文・条文番号")) return 130;
+    if(h.includes("一次資料")||h.includes("関連条文")) return 140;
+    if(h.includes("根拠・更新確認")||h.includes("根拠・確認状況")) return 900;
+    if(h.includes("共有・印刷")||h.includes("会議・説明用")) return 910;
+    if(h.includes("誤り・改正")) return 920;
+    return 500;
+  };
+  const anchor=current[0]?.parentElement;
+  if(anchor){
+    current.sort((a,b)=>rank(a)-rank(b)).forEach(sec=>anchor.appendChild(sec));
+  }
+
+  // Simplify top quick navigation to the things used under time pressure.
+  const nav=root.querySelector(".quick-nav");
+  if(nav){
+    nav.innerHTML="";
+    const navItems=[
+      ["要点解説","要点"],
+      ["重要な数値・基準","数値・基準"],
+      ["対象になる条件","適用条件"],
+      ["判定フロー","判定"],
+      ["実務判断・具体例","具体例"],
+      ["一次資料","一次資料"]
+    ];
+    navItems.forEach(([needle,labelText])=>{
+      const sec=[...root.querySelectorAll(".section")].find(v=>(v.querySelector("h3")?.textContent||"").includes(needle));
+      if(sec){
+        const b=document.createElement("button");
+        b.textContent=labelText;
+        b.onclick=()=>sec.scrollIntoView({behavior:"smooth",block:"start"});
+        nav.appendChild(b);
+      }
+    });
+  }
+
+  // Hide the old summary card: it duplicated legal/status information and harmed hierarchy.
+  root.querySelectorAll(".detail-summary").forEach(v=>v.remove());
+}
+const _enhance_v117=enhanceDetailHierarchy;
+enhanceDetailHierarchy=function(){
+  _enhance_v117();
+  fieldDetailLayout();
+};
+
+function rebuildDetailForFieldUse(){
+  const root=document.querySelector("#detail");
+  if(!root)return;
+  let sections=[...root.querySelectorAll(".section")];
+  const heading=sec=>(sec.querySelector("h3")?.textContent||"").trim();
+
+  // 1. Hard-remove sections the field user does not need.
+  sections.forEach(sec=>{
+    const h=heading(sec);
+    if(
+      h.includes("根拠・確認状況") || h.includes("根拠・更新確認") ||
+      h.includes("このテーマで使える実務ガイド") ||
+      h.includes("よくある判断質問") || h.includes("実務判断・具体例") ||
+      h.includes("誰が何をする") || h.includes("誰が何を確認") ||
+      h.includes("その他の関連条文") ||
+      h.includes("点検・検査・保存期間早見表") ||
+      h.includes("現場で確認するポイント") || h.includes("作業前の重要確認")
+    ) sec.remove();
+  });
+
+  sections=[...root.querySelectorAll(".section")];
+
+  // 2. Rename and simplify headings.
+  sections.forEach(sec=>{
+    const h=sec.querySelector("h3"); if(!h)return;
+    const t=h.textContent.trim();
+    if(t.includes("条文・条文番号")) h.innerHTML='条文 <span class="field-inline-note">※要旨です。原文は公式資料で確認</span>';
+    else if(t.includes("規制値・基準値・期限")||t.includes("重要な数値・基準")) h.textContent="重要な数値・基準";
+    else if(t.includes("適用条件・境界・例外チェック")||t.includes("対象になる条件・ならない条件")) h.textContent="適用条件";
+    else if(t.includes("30秒判定フロー")||t.includes("判定フロー")) h.textContent="判定";
+    else if(t.includes("必要書類・証憑チェック")||t.includes("作業前・提出時に確認する書類")) h.textContent="作業前に確認する書類";
+    else if(t.includes("教育・講習・資格の確認")||t.includes("必要な資格・教育")) h.textContent="必要な資格・教育";
+    else if(t.includes("会議・説明用に共有")||t.includes("共有・印刷")) h.textContent="会議・説明用に共有";
+    else if(t.includes("誤り・改正を報告")||t.includes("誤り・改正の報告")) h.textContent="誤り・改正を報告（現時点で送付先未設定）";
+  });
+
+  // 3. Remove verbose article warning boxes and duplicate "not original" labels.
+  root.querySelectorAll("*").forEach(el=>{
+    const t=(el.textContent||"").trim();
+    if(
+      t.startsWith("表示文は条文の要旨です。") ||
+      t.startsWith("※上記に表示した条文は、下の「その他の関連条文」") ||
+      t==="条文要旨（原文ではありません）"
+    ){
+      if(el.closest(".section") && el.children.length===0) el.remove();
+      else if(el.children.length===0) el.remove();
+    }
+  });
+
+  // 4. Legal classification: only the useful line; remove explanatory boilerplate.
+  sections=[...root.querySelectorAll(".section")];
+  const legal=sections.find(sec=>heading(sec).includes("法令区分"));
+  if(legal){
+    [...legal.querySelectorAll("*")].forEach(el=>{
+      if(el.children.length===0 && (el.textContent||"").trim()==="国の法令体系上の区分です。") el.remove();
+    });
+  }
+
+  // 5. Remove old "developer-facing" qualification explanation.
+  root.querySelectorAll("*").forEach(el=>{
+    const t=(el.textContent||"").trim();
+    if(el.children.length===0 && (
+      t.startsWith("時間数を断定できるものだけ具体値を表示") ||
+      t.startsWith("作業前・検査前・届出時に、何の書類を確認するか")
+    )) el.remove();
+  });
+
+  // 6. Put label/context before metric values where the current cards can be inferred.
+  const metricSec=[...root.querySelectorAll(".section")].find(sec=>(sec.querySelector("h3")?.textContent||"").includes("重要な数値・基準"));
+  if(metricSec){
+    const cards=[...metricSec.querySelectorAll(".metric")];
+    cards.forEach(card=>{
+      const texts=[...card.querySelectorAll("*")].filter(e=>e.children.length===0).map(e=>e.textContent.trim()).filter(Boolean);
+      const all=card.textContent.trim();
+      let label="",value="",context="";
+      const val=texts.find(t=>/^(?:約|おおむね)?\d|時間|日|年|月|m|ppm|dB/i.test(t)) || texts[0] || "";
+      value=val;
+      context=texts.find(t=>t!==val)||"";
+      if(/1分間以上/.test(all)){label="始業前の試運転";value="1分間以上";context="その日の作業開始前";}
+      else if(/3分間以上/.test(all)){label="といし取替え時の試運転";value="3分間以上";context="研削といしを取り替えたとき";}
+      else if(/3年間/.test(all)&&/特別教育/.test(all)){label="特別教育記録";value="3年間";context="保存期間";}
+      else if(/機械研削/.test(all)&&/学科7時間/.test(all)){label="機械研削用といしの特別教育";value="学科7時間＋実技3時間";context="教育時間";}
+      else if(/自由研削/.test(all)&&/学科4時間/.test(all)){label="自由研削用といしの特別教育";value="学科4時間＋実技2時間";context="教育時間";}
+      if(label){
+        card.classList.add("field-metric-card");
+        card.innerHTML=`<div><div class="field-metric-label">${label}</div><div class="muted">${context}</div></div><div class="field-metric-value">${value}</div>`;
+      }
+    });
+  }
+
+  // 7. Strict field-use order. Article is deliberately below practical decision data.
+  sections=[...root.querySelectorAll(".section")];
+  const rank=sec=>{
+    const h=(sec.querySelector("h3")?.textContent||"").trim();
+    if(h.includes("法令区分"))return 10;
+    if(h.includes("要点解説"))return 20;
+    if(h.includes("重要な数値・基準"))return 30;
+    if(h==="適用条件"||h.includes("適用条件"))return 40;
+    if(h==="判定"||h.includes("判定"))return 50;
+    if(h.includes("必要な資格・教育")||h.includes("教育・講習・資格"))return 60;
+    if(h.includes("作業前の管理・許可・隔離"))return 70;
+    if(h.includes("作業前に確認する書類"))return 80;
+    if(h.includes("提出先・相談先"))return 90;
+    if(h.includes("異常・緊急時"))return 100;
+    if(h.startsWith("条文"))return 200;
+    if(h.includes("一次資料"))return 210;
+    if(h.includes("会議・説明用に共有"))return 900;
+    if(h.includes("誤り・改正"))return 910;
+    return 300;
+  };
+  const parent=sections[0]?.parentElement;
+  if(parent) sections.sort((a,b)=>rank(a)-rank(b)).forEach(sec=>parent.appendChild(sec));
+
+  // 8. Styling classes after final ordering.
+  [...root.querySelectorAll(".section")].forEach(sec=>{
+    const h=(sec.querySelector("h3")?.textContent||"");
+    if(/法令区分|要点解説|重要な数値・基準|適用条件|判定/.test(h))sec.classList.add("field-primary");
+    else if(/会議・説明用|誤り・改正/.test(h))sec.classList.add("field-admin");
+    else sec.classList.add("field-secondary");
+  });
+
+  // 9. Quick nav: only decision-relevant destinations.
+  const nav=root.querySelector(".quick-nav");
+  if(nav){
+    nav.innerHTML="";
+    [["法令区分","法令区分"],["要点解説","要点"],["重要な数値・基準","数値・基準"],["適用条件","適用条件"],["判定","判定"],["必要な資格・教育","資格・教育"],["条文","条文"]].forEach(([needle,label])=>{
+      const sec=[...root.querySelectorAll(".section")].find(v=>(v.querySelector("h3")?.textContent||"").includes(needle));
+      if(sec){const b=document.createElement("button");b.textContent=label;b.onclick=()=>sec.scrollIntoView({behavior:"smooth",block:"start"});nav.appendChild(b)}
+    });
+  }
+}
+const _field117=fieldDetailLayout;
+fieldDetailLayout=function(){
+  _field117();
+  rebuildDetailForFieldUse();
+};
 </script></body></html>
